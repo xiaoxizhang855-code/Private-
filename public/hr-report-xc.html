@@ -468,6 +468,36 @@
       .pixel-pet-bubble{right:88px;bottom:105px;width:180px;padding:10px 12px;font-size:11px}
       .pixel-pet-close{width:24px;height:24px;font-size:16px}
     }
+    /* Compact mobile quiz: keep long scenario options visible without shrinking tap targets. */
+    @media(max-width:600px){
+      #quiz{margin:0}
+      body.quiz-view main{padding:10px 10px 24px}
+      #quiz .progress-wrap{margin:8px auto 0;padding:0 2px}
+      #quiz .progress-head{margin-bottom:6px;font-size:11px}
+      #quiz .progress{height:5px}
+      #quiz .quiz-card{margin-top:10px;padding:13px 12px 15px;border-radius:16px}
+      #quiz .simulation-status{gap:8px;margin-bottom:9px;padding:8px 10px;border-radius:12px}
+      #quiz .simulation-status strong{font-size:13px;line-height:1.35}
+      #quiz .simulation-status span{font-size:10px;line-height:1.35}
+      #quiz .day-ring{width:42px;height:42px;flex-basis:42px;font-size:12px}
+      #quiz .day-ring small{font-size:7px}
+      #quiz .scene-tag{font-size:10px;letter-spacing:.05em}
+      #quiz .scene{margin:7px 0 10px;padding:9px 10px;border-left-width:3px;font-size:12.5px;line-height:1.45}
+      #quiz .question{margin:9px 0 12px;font-size:20px;line-height:1.3}
+      #quiz .answers{gap:7px}
+      #quiz .answer{display:grid;grid-template-columns:26px minmax(0,1fr);align-items:start;gap:8px;min-height:48px;padding:10px 11px;font-size:14px;line-height:1.35}
+      #quiz .answer b{width:26px;height:26px;margin:0;font-size:14px}
+      #quiz .scale .answer{display:block;min-height:42px;padding:10px 12px;text-align:center}
+      body.quiz-view .pixel-pet{right:4px;bottom:2px;width:88px;height:94px;opacity:.88}
+      body.quiz-view .pixel-pet-character{height:88px}
+      body.quiz-view .pixel-pet-bubble{display:none}
+    }
+    @media(max-width:600px) and (max-height:740px){
+      #quiz .simulation-status span{display:none}
+      #quiz .quiz-card{padding-top:11px}
+      #quiz .question{font-size:18px}
+      #quiz .answer{min-height:44px;padding:8px 10px;font-size:13px}
+    }
     :focus-visible{outline:3px solid var(--orange)!important;outline-offset:3px}
     @media print{
       .pixel-pet,.pixel-pet-restore{display:none!important}
@@ -523,6 +553,38 @@
       .standalone-hr .toc-item b{font-size:16px}
       .standalone-hr .toc-item p{font-size:12px;line-height:1.65}
       .standalone-hr .page-foot{left:66px;right:66px;bottom:30px;padding-top:12px;border-top:1px solid #f0dfcf;font-family:"PingFang SC","Microsoft YaHei",sans-serif;color:#9a745b}
+    }
+    /* Mobile HR report: keep dense A4 tables readable instead of squeezing every column. */
+    @media screen and (max-width:800px){
+      .standalone-hr main{padding:10px 9px 34px}
+      .standalone-hr .formal-report{gap:14px}
+      .standalone-hr .report-page{min-height:0;padding:25px 14px 28px;overflow:hidden;border-radius:14px}
+      .standalone-hr .page-head{align-items:flex-start;gap:10px;margin-bottom:18px;padding-bottom:12px}
+      .standalone-hr .page-head h3{padding-right:0;font-size:24px;line-height:1.28}
+      .standalone-hr .page-head span{flex-basis:auto;min-width:46px;font-size:10px}
+      .standalone-hr .section-title{margin:22px 0 12px;font-size:18px;line-height:1.4}
+      .standalone-hr .report-intro{font-size:12px;line-height:1.75}
+      .standalone-hr .facet-grid{max-width:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:5px;border-radius:10px;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain}
+      .standalone-hr .facet-grid:before{content:"← 左右滑动查看完整表格 →";position:sticky;left:0;z-index:2;display:block;width:max-content;padding:7px 10px;background:#fff0df;color:#a64b13;font-size:10px;font-weight:800}
+      .standalone-hr .facet-table{width:660px;min-width:660px;table-layout:fixed;font-size:10px}
+      .standalone-hr .facet-table th{padding:8px 6px}
+      .standalone-hr .facet-table td{padding:7px 6px;line-height:1.45}
+      .standalone-hr .facet-copy,.standalone-hr .facet-behavior{font-size:9.5px;line-height:1.5}
+      .standalone-hr .appendix-five-grid,.standalone-hr .appendix-facet-grid,.standalone-hr .appendix-result-grid{grid-template-columns:1fr;gap:10px}
+      .standalone-hr .appendix-facet-group:last-child{grid-column:auto}
+      .standalone-hr .appendix-disc-grid{grid-template-columns:1fr 1fr;gap:9px}
+      .standalone-hr .appendix-five,.standalone-hr .appendix-facet-group,.standalone-hr .appendix-disc,.standalone-hr .appendix-boundary{padding:13px 14px}
+      .standalone-hr .appendix-five b,.standalone-hr .appendix-facet-group>b{font-size:13px}
+      .standalone-hr .appendix-disc strong{font-size:15px}
+      .standalone-hr .appendix-five p,.standalone-hr .appendix-facet-group p,.standalone-hr .appendix-disc p{font-size:11px;line-height:1.65}
+      .standalone-hr .appendix-boundary b{font-size:12px}
+      .standalone-hr .appendix-boundary p{font-size:10.5px;line-height:1.65}
+      .standalone-hr .print-toolbar{right:10px;bottom:10px;gap:0;padding:0;border-radius:10px;background:transparent;box-shadow:none}
+      .standalone-hr .print-toolbar button:first-child{min-width:0;padding:9px 12px;border:1px solid rgba(255,255,255,.75);border-radius:9px;font-size:0;box-shadow:0 5px 16px rgba(67,28,8,.2)}
+      .standalone-hr .print-toolbar button:first-child:after{content:"打印报告";font-size:12px;font-weight:800;white-space:nowrap}
+    }
+    @media screen and (max-width:430px){
+      .standalone-hr .appendix-disc-grid{grid-template-columns:1fr}
     }
     @media print{
       .report-page{color:#2b1b12!important;font-family:"PingFang SC","Microsoft YaHei",sans-serif!important}
@@ -1244,7 +1306,7 @@ function summarizeAdaptation(value=[]){
  const level=range>=4?"多策略切换":range===3?"较多策略切换":range===2?"双策略切换":range===1?"策略相对集中":"暂无数据";
  return {distribution,total,range,primary,primaryCount,level};
 }
-function go(id){document.body.classList.toggle("candidate-result-view",id==="result"&&!document.body.classList.contains("standalone-hr"));document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");document.querySelectorAll(".nav-item").forEach(x=>x.classList.toggle("active",x.dataset.nav===id));window.scrollTo({top:0,behavior:"smooth"})}
+function go(id){document.body.classList.toggle("quiz-view",id==="quiz");document.body.classList.toggle("candidate-result-view",id==="result"&&!document.body.classList.contains("standalone-hr"));document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");document.querySelectorAll(".nav-item").forEach(x=>x.classList.toggle("active",x.dataset.nav===id));window.scrollTo({top:0,behavior:"smooth"})}
 function candidateInfo(){return {name:document.getElementById("candidateNameInput").value.trim(),role:document.getElementById("candidateRoleInput").value.trim()||"待确认岗位"}}
 function applyCandidateInfo(name,role){
  document.getElementById("candidateNameResult").textContent=name;
