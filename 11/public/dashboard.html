@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WBS-40 招聘测评后台</title>
+  <style>
+    :root{--ink:#18231f;--muted:#6c7671;--green:#176b55;--amber:#f2b84b;--paper:#f4f5f1;--line:#dde2df;--card:#fff}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif}.wrap{width:min(1180px,calc(100% - 32px));margin:0 auto;padding:30px 0 60px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:28px}.brand{display:flex;gap:12px;align-items:center}.mark{width:42px;height:42px;border-radius:13px;background:var(--green);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:900}.brand h1{font-size:24px;margin:0}.brand p{font-size:12px;color:var(--muted);margin:4px 0 0}.back{color:var(--green);text-decoration:none;font-size:13px;font-weight:700}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}.stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}.stat small{color:var(--muted)}.stat strong{display:block;font-size:36px;margin-top:8px}.stat:first-child{background:#eaf5f0}.stat:nth-child(2){background:#fff7e6}
+    .panel{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:19px 22px;border-bottom:1px solid var(--line)}.panel-head h2{font-size:17px;margin:0}.search{border:1px solid var(--line);border-radius:11px;padding:10px 12px;width:250px;font:inherit}
+    table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;color:var(--muted);font-weight:600;background:#fafbf9;padding:13px 18px}td{padding:15px 18px;border-top:1px solid #edf0ee}td a{color:var(--green);font-weight:800;text-decoration:none}td a:hover{text-decoration:underline}.badge{display:inline-block;border-radius:999px;padding:5px 9px;background:#e9f4ef;color:var(--green);font-size:11px}.quality{font-weight:800}.empty{padding:50px;text-align:center;color:var(--muted)}.note{font-size:11px;color:var(--muted);line-height:1.7;margin-top:14px}
+    .access-gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:22px;background:rgba(18,29,25,.58);backdrop-filter:blur(5px)}.access-dialog{width:min(420px,100%);background:#fff;border-radius:22px;padding:30px;box-shadow:0 24px 70px rgba(0,0,0,.24)}.access-dialog h2{font-size:22px;margin:0 0 8px}.access-dialog p{font-size:13px;color:var(--muted);line-height:1.65;margin:0 0 20px}.access-dialog label{display:block;font-size:12px;font-weight:800;margin-bottom:7px}.access-dialog input{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px 14px;font:inherit;outline:none}.access-dialog input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(23,107,85,.12)}.access-error{min-height:20px;margin:7px 0 4px;color:#b44343;font-size:12px}.access-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.access-actions button{border:0;border-radius:12px;padding:12px;font:inherit;font-weight:800;cursor:pointer}.access-cancel{background:#eef1ef;color:var(--ink)}.access-submit{background:var(--green);color:#fff}
+    @media(max-width:760px){.stats{grid-template-columns:1fr}.panel-head{align-items:flex-start;flex-direction:column}.search{width:100%}.table-scroll{overflow:auto}table{min-width:760px}.wrap{width:min(100% - 20px,1180px)}header{align-items:flex-start}.brand h1{font-size:20px}}
+</style>
+</head>
+<body><div class="wrap">
+  <header><div class="brand"><div class="mark">WBS</div><div><h1>招聘测评后台</h1><p>候选人记录、报告统计与结果查询</p></div></div><a class="back" id="backLink" href="./index.html">返回测评首页</a></header>
+  <section class="stats"><div class="stat"><small>累计候选人</small><strong id="candidateCount">0</strong></div><div class="stat"><small>累计测评报告</small><strong id="reportCount">0</strong></div><div class="stat"><small>今日完成</small><strong id="todayCount">0</strong></div></section>
+  <section class="panel"><div class="panel-head"><h2>候选人测评记录</h2><input class="search" id="search" placeholder="搜索姓名、岗位或五维摘要"></div><div class="table-scroll"><table><thead><tr><th>候选人</th><th>应聘岗位</th><th>职场五维摘要</th><th>可信度</th><th>完成时间</th><th>报告编号</th></tr></thead><tbody id="rows"></tbody></table><div class="empty" id="empty" hidden>暂无候选人报告</div></div></section>
+  <p class="note" id="dataNote">在线版数据由站点数据库保存；候选人姓名属于招聘数据，应配置HR身份验证、访问日志和保存期限后再投入正式使用。</p>
+</div>
+<script>
+const demoItems=[
+ {id:"WBS-DEMO-001",candidateName:"林知远",candidateRole:"项目运营经理",roleName:"尽责性 × 开放性",roleCode:"C-O",qualityScore:86,completedAt:"2026-07-21T06:30:00.000Z",hrToken:"demo1"},
+ {id:"WBS-DEMO-002",candidateName:"周念安",candidateRole:"产品专员",roleName:"外向性 × 宜人性",roleCode:"E-A",qualityScore:92,completedAt:"2026-07-20T08:15:00.000Z",hrToken:"demo2"},
+ {id:"WBS-DEMO-003",candidateName:"陈默",candidateRole:"研发工程师",roleName:"开放性 × 尽责性",roleCode:"O-C",qualityScore:78,completedAt:"2026-07-19T03:40:00.000Z",hrToken:"demo3"}
+];
+let allItems=[],hrAccessPassword="";
+const local=location.protocol==="file:",currentFile=decodeURIComponent(location.pathname.split("/").pop()||""),packaged=currentFile==="dashboard.html",base=local?(packaged?"./index.html":"./WBS-40页面审核原型.html"):"./index.html";document.getElementById("backLink").href=base;
+function formatDate(value){const d=new Date(value);return Number.isNaN(d.valueOf())?value:d.toLocaleString("zh-CN",{hour12:false})}
+function reportHref(item){if(local){const main=packaged?"./index.html":"./WBS-40页面审核原型.html";return `${main}?view=hr&reportId=${encodeURIComponent(item.id)}`}return `./hr-report.html?token=${encodeURIComponent(item.hrToken)}`}
+function escapeHtml(value){return String(value??"").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]))}
+const bigFiveNameByCode={N:"神经质",S:"神经质",E:"外向性",X:"外向性",O:"开放性",A:"宜人性",G:"宜人性",C:"尽责性"};
+function displayBigFiveRole(item){
+ const parts=String(item?.roleCode||"").toUpperCase().split(/[-×]/).map(value=>value.trim()).filter(Boolean),fromCode=parts.length===2?parts.map(code=>bigFiveNameByCode[code]).filter(Boolean):[];
+ if(fromCode.length===2)return fromCode.join(" × ");
+ const raw=String(item?.roleName||"").trim();if(!raw)return "暂无明显突出维度";
+ return raw.replace(/认真负责/g,"尽责性").replace(/开放创新/g,"开放性").replace(/主动外向/g,"外向性").replace(/合作友善/g,"宜人性").replace(/情绪敏感|压力敏感|风险敏感|敏感警觉/g,"神经质").replace(/\s*[xX×脳]\s*/g," × ");
+}
+function render(items){const body=document.getElementById("rows"),empty=document.getElementById("empty");empty.hidden=items.length>0;body.innerHTML=items.map(item=>`<tr><td><a href="${escapeHtml(reportHref(item))}">${escapeHtml(item.candidateName)}</a></td><td>${escapeHtml(item.candidateRole)}</td><td><span class="badge">${escapeHtml(displayBigFiveRole(item))}</span></td><td><span class="quality">${escapeHtml(item.qualityScore)}</span></td><td>${escapeHtml(formatDate(item.completedAt))}</td><td>${escapeHtml(item.id)}</td></tr>`).join("")}
+async function load(){
+ if(!local){try{const response=await fetch("/api/reports?limit=200",{headers:{"x-hr-password":hrAccessPassword}});if(!response.ok)throw new Error(response.status===401?"HR密码错误":"数据服务暂不可用");const data=await response.json();allItems=Array.isArray(data.items)?data.items:[];document.getElementById("candidateCount").textContent=data.stats.candidates;document.getElementById("reportCount").textContent=data.stats.reports;document.getElementById("todayCount").textContent=data.stats.today;document.getElementById("dataNote").textContent="当前显示站点数据库中的真实测评记录。请按企业制度配置访问权限、访问日志、数据导出和保存期限。";render(allItems);return}catch(error){allItems=[];document.getElementById("candidateCount").textContent="0";document.getElementById("reportCount").textContent="0";document.getElementById("todayCount").textContent="0";document.getElementById("dataNote").textContent=`未读取在线数据：${error.message}。页面不会用示例记录替代真实数据，请刷新后重新输入密码。`;render(allItems);return}}
+ const params=new URLSearchParams(location.search);let saved=[];
+ try{const incoming=params.get("reports");if(incoming){saved=JSON.parse(incoming);localStorage.setItem("wbs40_dashboard_reports_v1",incoming)}else saved=JSON.parse(localStorage.getItem("wbs40_dashboard_reports_v1")||"[]")}catch{}
+ allItems=Array.isArray(saved)&&saved.length?saved:demoItems;const today=new Date().toLocaleDateString("zh-CN");document.getElementById("candidateCount").textContent=new Set(allItems.map(x=>x.candidateName)).size;document.getElementById("reportCount").textContent=allItems.length;document.getElementById("todayCount").textContent=allItems.filter(x=>new Date(x.completedAt).toLocaleDateString("zh-CN")===today).length;document.getElementById("dataNote").textContent=saved.length?"当前显示本机审核版已完成的真实测评记录；正式在线版将由站点数据库统一保存。":"尚未读取到本机完成记录，当前显示示例数据。请从测评首页进入后台。";render(allItems)
+}
+function authorizeDashboard(){
+ return new Promise(resolve=>{
+  const gate=document.createElement("div");gate.className="access-gate";gate.innerHTML='<form class="access-dialog" role="dialog" aria-modal="true" aria-labelledby="accessTitle"><h2 id="accessTitle">访问招聘测评后台</h2><p>该页面仅供授权HR使用，请输入访问密码后继续。</p><label for="protectedPassword">访问密码</label><input id="protectedPassword" type="password" inputmode="numeric" autocomplete="current-password" placeholder="请输入密码"><div class="access-error" aria-live="polite"></div><div class="access-actions"><button class="access-cancel" type="button">返回首页</button><button class="access-submit" type="submit">进入后台</button></div></form>';
+  document.body.appendChild(gate);const form=gate.querySelector("form"),input=gate.querySelector("input"),error=gate.querySelector(".access-error");
+  form.addEventListener("submit",event=>{event.preventDefault();const valid=local?input.value==="11123":Boolean(input.value.trim());if(valid){hrAccessPassword=input.value;gate.remove();resolve(true)}else{error.textContent=local?"密码错误，请重新输入":"请输入HR访问密码";input.value="";input.focus()}});
+  gate.querySelector(".access-cancel").addEventListener("click",()=>{gate.remove();resolve(false)});setTimeout(()=>input.focus(),0);
+ })
+}
+document.getElementById("search").addEventListener("input",event=>{const q=event.target.value.trim().toLowerCase();render(allItems.filter(item=>[item.candidateName,item.candidateRole,item.roleName,item.id,displayBigFiveRole(item)].some(v=>String(v).toLowerCase().includes(q))))});
+authorizeDashboard().then(granted=>{if(granted)load();else location.href=base});
+</script></body></html>

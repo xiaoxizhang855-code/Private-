@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>20种人格熊猫测试中心</title>
+  <style>
+    :root{--ink:#2b160a;--muted:#7a5b46;--orange:#d85f14;--deep:#9c3808;--cream:#fffdf1;--line:#edc298}
+    *{box-sizing:border-box}
+    body{margin:0;color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:radial-gradient(circle at 10% 2%,rgba(255,220,145,.4),transparent 28%),linear-gradient(150deg,#b7430b,#df6b18 48%,#ffb854);min-height:100vh}
+    main{width:min(1320px,100%);margin:auto;padding:42px 28px 70px}
+    .hero{display:flex;justify-content:space-between;gap:30px;align-items:flex-end;margin-bottom:26px;color:#fff7e7}
+    .hero small{font-weight:900;letter-spacing:.14em}.hero h1{font-size:clamp(34px,5vw,62px);letter-spacing:-.055em;line-height:1.06;margin:10px 0 12px}.hero p{max-width:720px;margin:0;color:#ffe3b1;line-height:1.8}
+    .home{flex:0 0 auto;padding:11px 16px;border:1px solid rgba(255,255,255,.42);border-radius:999px;color:#fff;text-decoration:none;font-weight:800;background:rgba(95,31,3,.18)}
+    .toolbar{position:sticky;top:12px;z-index:5;display:flex;gap:9px;flex-wrap:wrap;margin-bottom:24px;padding:12px;border:1px solid rgba(255,255,255,.34);border-radius:18px;background:rgba(111,37,4,.24);backdrop-filter:blur(10px)}
+    .filter{border:0;border-radius:999px;padding:9px 14px;color:#ffe8bd;background:transparent;font:inherit;font-size:13px;font-weight:850;cursor:pointer}.filter.active{background:var(--cream);color:#a4410c}
+    .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+    .card{display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid rgba(255,255,255,.5);border-radius:25px;background:rgba(255,253,241,.96);box-shadow:0 18px 38px rgba(87,30,4,.14);transition:.2s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:0 24px 48px rgba(87,30,4,.2)}
+    .visual{position:relative;display:grid;place-items:center;aspect-ratio:1;background:radial-gradient(circle at 50% 45%,#fffdf7 0%,#fff3dd 70%,#ffe2bc 100%)}
+    .visual img{width:100%;height:100%;object-fit:contain;padding:10px}
+    .code{position:absolute;left:14px;top:14px;padding:6px 10px;border-radius:999px;background:#2c1a10;color:#fff;font-size:11px;font-weight:900;letter-spacing:.08em}
+    .body{display:flex;flex:1;flex-direction:column;padding:18px}
+    .pair{color:#c14f10;font-size:12px;font-weight:900}.body h2{margin:5px 0 8px;font-size:21px;letter-spacing:-.03em}.body p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
+    .tags{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}.tags span{padding:5px 9px;border-radius:999px;background:#fff0df;color:#a84b14;font-size:11px;font-weight:800}
+    .open{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:13px;border-top:1px solid #f0dbc5;color:#a8400b;text-decoration:none;font-size:13px;font-weight:900}.open:after{content:"→";font-size:18px}
+    .empty{display:none;color:#fff3d8;padding:30px 0}
+    @media(max-width:1050px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:760px){main{padding:28px 16px 50px}.hero{display:block}.home{display:inline-flex;margin-top:18px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.body{padding:14px}.body h2{font-size:18px}.visual img{padding:4px}}
+    @media(max-width:480px){.grid{grid-template-columns:1fr}.visual{aspect-ratio:1.1}.visual img{max-height:390px}}
+  </style>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <div><small>WBS-40 · PANDA PERSONA LAB</small><h1>20种人格熊猫测试中心</h1><p>大五前两项采用有序组合：顺序不同，熊猫的服装、姿态和道具也不同。点击任意卡片，可进入对应组合的候选人结果页测试。</p></div>
+    <a class="home" href="index.html">返回测评首页</a>
+  </header>
+  <nav class="toolbar" aria-label="按首要维度筛选">
+    <button class="filter active" data-filter="all">全部 20</button>
+    <button class="filter" data-filter="N">神经质优先</button>
+    <button class="filter" data-filter="E">外向性优先</button>
+    <button class="filter" data-filter="O">开放性优先</button>
+    <button class="filter" data-filter="A">宜人性优先</button>
+    <button class="filter" data-filter="C">尽责性优先</button>
+  </nav>
+  <section class="grid" id="grid" aria-live="polite"></section>
+  <p class="empty" id="empty">当前筛选没有可展示的组合。</p>
+</main>
+<script>
+const names={N:"神经质",E:"外向性",O:"开放性",A:"宜人性",C:"尽责性"};
+const personas=[
+ ["N-E","情绪舞台者","情绪波动明显，但喜欢表达、社交活跃。",["外放敏感","热烈表达"]],
+ ["N-O","灵感沉浸者","内心敏感、想象力强，容易沉浸在艺术和情绪里。",["敏感创意","幻想细腻"]],
+ ["N-A","温柔共情者","容易焦虑，但关心他人、共情能力强。",["温柔担忧","共情陪伴"]],
+ ["N-C","谨慎核查者","谨慎、自律、容易紧张，追求准确和控制。",["严谨焦虑","细致高要求"]],
+ ["E-N","热烈表达者","热情活跃，但情绪起伏大，容易被外界影响。",["社交热情","波动表现力"]],
+ ["E-O","活力探险者","爱探索、爱社交，愿意尝试新事物。",["探索好奇","外向新鲜"]],
+ ["E-A","热情联结者","友善、热情，擅长照顾他人和维护关系。",["亲和社交","温暖人缘"]],
+ ["E-C","项目推动者","行动力强、组织力强，适合推动项目。",["组织执行","推动目标"]],
+ ["O-N","细腻创作者","想象力丰富，情绪细腻，容易有艺术感。",["艺术直觉","幻想敏感"]],
+ ["O-E","创意分享者","喜欢新鲜体验，也喜欢与人分享想法。",["创意交流","开放灵感"]],
+ ["O-A","多元倾听者","包容、善解人意，愿意理解不同观点。",["包容理解","倾听多元"]],
+ ["O-C","创意落地者","有想法，也有规划能力，能把创意落地。",["创新规划","落地理性"]],
+ ["A-N","温暖陪伴者","关心他人，也容易因为关系问题焦虑。",["体贴敏感","温暖关系"]],
+ ["A-E","亲和破冰者","主动社交，也能照顾他人情绪。",["高情商社交","亲和活跃"]],
+ ["A-O","包容体验者","愿意理解他人，也愿意接纳不同生活方式。",["倾听包容","体验温柔"]],
+ ["A-C","可靠协作者","可靠、友善，愿意承担团队责任。",["可靠温暖","协作责任"]],
+ ["C-N","严谨守门者","认真负责，但容易因为压力和失误焦虑。",["压力谨慎","细致内耗"]],
+ ["C-E","行动统筹者","自律且外向，擅长推动事情和协调他人。",["统筹执行","商务推动"]],
+ ["C-O","方法优化者","守规则，但也愿意尝试新方法。",["创新秩序","优化方法"]],
+ ["C-A","温暖担当者","有责任心，也重视团队氛围和他人感受。",["靠谱协作","温暖责任"]]
+];
+const grid=document.getElementById("grid"),empty=document.getElementById("empty");
+function render(filter="all"){
+ const visible=personas.filter(([code])=>filter==="all"||code.startsWith(filter+"-"));
+ grid.innerHTML=visible.map(([code,title,trait,tags])=>{const [first,second]=code.split("-"),file=code.toLowerCase();return `<article class="card" data-primary="${first}"><div class="visual"><span class="code">${code}</span><img src="assets/pandas/panda-${file}.png" alt="${names[first]}乘${names[second]}：${title}熊猫形象" loading="lazy"></div><div class="body"><div class="pair">${names[first]} × ${names[second]}</div><h2>${title}</h2><p>${trait}</p><div class="tags">${tags.map(tag=>`<span>#${tag}</span>`).join("")}</div><a class="open" href="candidate-result.html?persona=${code}">打开结果卡测试</a></div></article>`}).join("");
+ empty.style.display=visible.length?"none":"block";
+}
+document.querySelectorAll(".filter").forEach(button=>button.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(item=>item.classList.remove("active"));button.classList.add("active");render(button.dataset.filter)}));
+render();
+</script>
+</body>
+</html>
