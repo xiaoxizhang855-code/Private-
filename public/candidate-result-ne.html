@@ -405,7 +405,8 @@
     .candidate-result-view .brand,.candidate-result-view .status,.candidate-result-view .nav-item,.candidate-result-view .aside-note,.candidate-result-view .ghost,.candidate-result-view .topbar .eyebrow{color:#fff}
     .candidate-result-view .status{border-color:rgba(255,255,255,.62);background:rgba(255,255,255,.16)}
     .candidate-result-view .nav-item.active{color:#fff;background:rgba(255,255,255,.16)}
-    .candidate-result-view .actions .cta{border:1px solid #fff;background:#fff;color:var(--orange);box-shadow:none}
+    .candidate-result-view .actions{justify-content:center}
+    .candidate-result-view .actions .cta{border:1px solid #fff;border-radius:999px;background:#fff;color:var(--orange);box-shadow:none}
     .candidate-result-view .actions .cta:hover{border-color:#fff3e5;background:#fff3e5;color:var(--orange-deep)}
     .candidate-poster{position:relative;overflow:hidden;padding:20px 0 0;background:transparent;border:0}
     .candidate-poster:after{content:"";position:absolute;inset:auto -90px -110px auto;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.28);pointer-events:none}
@@ -1174,7 +1175,7 @@
             <div class="meta"><strong>5</strong><span>个职场维度</span></div>
           </div>
         </div>
-        <div class="orbit"><div class="orbit-core"><div><span>WBS-40</span>没有最好<br>只有更适合</div></div></div>
+        <div class="orbit"><div class="orbit-core"><div><span>BIG5</span>没有最好<br>只有更适合</div></div></div>
       </div>
       <div class="principles">
         <div class="principle"><div>≈</div><b>神经质</b><small>焦虑、愤怒、抑郁、自我意识、冲动性、脆弱性</small></div>
@@ -1541,12 +1542,42 @@ const behaviorScene="请选择这句话与你过去一年真实表现的符合�
 const b=(chapter,q,mode,reverse=false)=>({chapter,type:"行为描述",scene:behaviorScene,q,mode,reverse});
 const scenarioTraitNames={S:"神经质（低倾向）",X:"外向性",O:"开放性",G:"宜人性",C:"尽责性"};
 const legacyScenarioMap={P:"X",E:"G",R:"S",A:"C"};
+const scenarioOpenOptions={
+ "你接手一个跨部门项目，目标大致明确，但职责边界仍有空白。":["画出几种可能的协作结构，比较后选一种先运行。","你选择先探索不同的协作结构。"],
+ "新成员加入后明显沉默，项目又必须快速启动。":["换一种轻量互动方式，让他先通过便签或示例表达想法。","你选择用新的互动形式帮助成员参与。"],
+ "上级给出的目标比较模糊，但希望两周内看到进展。":["把目标改写成几种可能的成果形态，用样例请上级快速选择。","你选择用多种成果设想澄清模糊目标。"],
+ "团队对项目价值缺乏兴趣。":["做一个简短原型或新场景演示，让大家直观看到项目可能性。","你选择用新场景和原型激发理解。"],
+ "两个部门因资源安排发生争执，会议开始偏离主题。":["跳出现有分配方式，提出资源互换或分阶段共享的新方案。","你选择探索不同于原有分配方式的方案。"],
+ "一名能力很强的同事经常打断别人。":["试用限时发言、书面补充等新的会议互动方式。","你选择通过新的互动机制改善会议。"],
+ "你提出的方案被关键相关方公开质疑。":["把质疑转成新的假设，现场构想几个替代版本。","你选择从质疑中发展新的方案可能。"],
+ "一位成员连续两次没有按约定交付。":["重新设计交付方式，尝试更短周期或不同协作工具。","你选择尝试新的交付路径。"],
+ "距离上线只剩一天，发现一个影响有限但真实存在的问题。":["构想灰度发布、功能隔离等不完全延期的替代方案。","你选择探索兼顾上线与风险的新路径。"],
+ "客户临时提出超出范围的新要求。":["寻找能满足核心诉求的新组合方案，而不是沿用原需求做法。","你选择重新组合方案以回应新诉求。"],
+ "团队已连续高强度工作两周，但关键节点仍不能推迟。":["试用自动化、结对或新的工作方法，寻找不同的减负路径。","你选择用新方法改善高压下的工作方式。"],
+ "你发现自己之前的判断可能错了。":["重新检查原有假设，并主动引入不同视角寻找新解释。","你选择开放地重构原有判断。"],
+ "项目结果达标，但过程出现多次返工。":["寻找现有流程之外的做法，重新设计容易返工的环节。","你选择从新角度重新设计工作流程。"],
+ "试行的新流程效果一般，团队意见分散。":["拆开流程中的有效部分，组合出两三个新版本再比较。","你选择重组已有经验并探索新版本。"],
+ "一位表现稳定的成员最近开始频繁出错。":["从工具、任务变化或工作方式等新角度提出几种原因假设。","你选择从多个新视角理解异常变化。"],
+ "管理层希望把成功经验快速复制到其他团队。":["提炼核心原理，让不同团队设计适合自身的新版本。","你选择保留原理并鼓励情境化创新。"],
+ "核心客户突然要求提前一周交付，但需求范围没有减少。":["探索不同于原计划的交付形态，例如可体验版本或模块化交付。","你选择重新设想成果的交付形态。"],
+ "客户对已交付成果表示不满，但反馈非常笼统。":["请客户用示例、草图或理想场景表达期待，打开新的理解角度。","你选择用多样表达方式发现真实期待。"],
+ "你同时负责三个重要任务，现有资源只能确保两个按期完成。":["寻找任务合并、成果复用或替代路径，重新设计三项工作的关系。","你选择通过重组任务寻找新的资源空间。"],
+ "一名关键成员提出转岗，短期内很难找到替代者。":["设计新的角色组合和知识共享方式，降低对单一岗位的依赖。","你选择重新构想角色与知识的配置方式。"],
+ "你正在完成一项需要安静分析的任务，临时又被安排支持当天的重要汇报。":["把分析中的关键洞见转化为新的汇报结构，让两项任务相互支持。","你选择创造两项任务之间的新连接。"],
+ "项目原本追求快速上线，客户临时把合规性改为第一优先级。":["从合规限制出发重新设计方案，寻找新的产品或流程可能。","你选择把新限制转化为重新设计的起点。"],
+ "你加入一个沟通风格差异很大的临时团队：有人直接，有人习惯委婉表达。":["试用可视化、书面和口头相结合的多种沟通方式。","你选择探索适配不同风格的表达形式。"],
+ "负责人突然请假，你需要临时代班一周，之后再回到个人贡献者角色。":["把这一周作为小型试验，尝试一种新的协调机制并记录效果。","你选择在临时角色中试验新的协作方法。"],
+ "分析数据支持一个新方案，但一线同事普遍认为实际执行困难。":["把数据与一线经验组合成几个新假设，再设计对应验证方式。","你选择整合不同证据形成新的验证假设。"],
+ "同一天里，客户沟通、团队问题和质量风险都需要你处理。":["尝试新的任务视图或批处理方式，重新组织三类工作的切换路径。","你选择用新的组织方式降低多任务切换损耗。"]
+};
 const s=(chapter,scene,q,opts,adaptation=false)=>{
  const mapped=opts.map(([letter,text,legacy,feedback])=>{
   const trait=legacyScenarioMap[legacy];
   return [letter,text,trait,`${scenarioTraitNames[trait]}：${feedback}`]
  });
- mapped.push(["E","提出一个范围可控的新做法或小试验，用反馈验证后再决定是否扩大。","O","开放性：你选择通过尝试和新信息寻找处理路径。"]);
+ const openOption=scenarioOpenOptions[scene];
+ if(!openOption)throw new Error(`缺少情境题开放性选项：${scene}`);
+ mapped.push(["E",openOption[0],"O",`开放性：${openOption[1]}`]);
  return {chapter,type:"情境选择",scene,q,opts:mapped,adaptation}
 };
 /* 历史题库已停用，仅保留作版本迁移比对；正式运行只加载下方 questionBank 与 scenarioBank。
