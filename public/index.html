@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -94,7 +94,11 @@
     .progress-head{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:9px}
     .progress{height:7px;background:#dddcd6;border-radius:999px;overflow:hidden}
     .progress>div{height:100%;background:linear-gradient(90deg,var(--green),var(--green2));width:0;transition:.35s}
+    .quiz-nav-row{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:4px}
     .scene-tag{font-size:12px;color:var(--green);font-weight:800;letter-spacing:.08em}
+    .previous-question{border:1px solid #efb36c;border-radius:999px;background:#fff7e7;color:#b84e0d;padding:8px 14px;font:inherit;font-size:12px;font-weight:850;cursor:pointer;transition:.16s}
+    .previous-question:hover{background:#ffe8be;border-color:#e88727;transform:translateX(-2px)}
+    .previous-question:disabled{opacity:.45;cursor:not-allowed;transform:none}
     .scene{margin:14px 0 22px;padding:16px 18px;border-left:3px solid var(--amber);background:#faf5e7;border-radius:0 12px 12px 0;color:#665735;line-height:1.7;font-size:14px}
     .question{font-size:24px;line-height:1.5;margin:18px 0 24px}
     .answers{display:grid;gap:11px}
@@ -205,7 +209,7 @@
     .summary-profile-detailed{border:1px solid #dfe5e2;border-left:4px solid #176b55;border-radius:0 14px 14px 0;padding:17px 18px;background:#fbfcfb}.summary-profile-detailed small{display:block;color:#66756f;margin-bottom:7px}.summary-profile-detailed>strong{display:block;font-size:18px;line-height:1.45;margin-bottom:8px}.summary-profile-detailed>p{font-size:11.5px;line-height:1.7;color:#5d6963;margin:0}.summary-focus-title{display:block;font-size:11px;margin:13px 0 6px;color:#2a3b34}.summary-focus-list{display:grid;gap:6px;margin:0;padding:0;list-style:none}.summary-focus-list li{position:relative;padding-left:15px;font-size:10.5px;line-height:1.55;color:#53615b}.summary-focus-list li:before{content:"";position:absolute;left:1px;top:.58em;width:6px;height:6px;border-radius:50%;background:#d28a43}.summary-focus-list b{color:#263a32}.summary-personality{grid-column:1/-1;border-left:4px solid #176b55;background:#f3f8f5}.summary-personality p{font-size:12px;line-height:1.75}.report-toc{display:grid;grid-template-columns:1fr;gap:0;margin-top:24px}.toc-item{display:grid;grid-template-columns:50px 1fr 58px;gap:14px;align-items:center;padding:17px 0;border-bottom:1px solid #dfe5e2}.toc-item span{width:42px;height:42px;border-radius:12px;background:#edf6f2;color:#176b55;display:grid;place-items:center;font-weight:900;font-size:12px}.toc-item b{display:block;font-size:15px;margin-bottom:4px}.toc-item p{margin:0;color:#69756f;font-size:11px;line-height:1.55}.toc-item small{color:#176b55;font-size:11px;font-weight:800;text-align:right}.toc-note{margin-top:28px;padding:18px 20px;border-radius:14px;background:#f7f4ea;border-left:4px solid var(--amber);font-size:12px;line-height:1.75;color:#665f50}
     .motivation-priority-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:9px;margin-top:7px}.motivation-priority-table th{background:#f4f6f5;color:#31443d;padding:7px 8px;text-align:left;border-bottom:1px solid #d8e0dc}.motivation-priority-table th:nth-child(1){width:12%}.motivation-priority-table th:nth-child(2){width:22%}.motivation-priority-table th:nth-child(3){width:30%}.motivation-priority-table td{padding:8px;border-bottom:1px solid #e0e5e2;vertical-align:top;line-height:1.45;color:#58645f}.motivation-priority-table td:first-child,.motivation-priority-table td:nth-child(2){font-weight:800;color:#263a32}.motivation-priority-table tr:first-child td:first-child{color:#176b55}.motivation-priority-table tr:last-child td:first-child{color:#a65d26}
     .evidence-summary{border:1px solid #dfe5e2;border-left:4px solid #176b55;border-radius:0 13px 13px 0;padding:13px 15px;background:#f5f9f7;margin-bottom:12px}.evidence-summary small{display:block;color:#176b55;font-size:9px;font-weight:800;margin-bottom:4px}.evidence-summary strong{display:block;font-size:14px;margin-bottom:5px}.evidence-summary p{font-size:10px;line-height:1.55;color:#5d6963;margin:0}
-    .consistency-table{width:100%;border-collapse:collapse;table-layout:fixed;margin-top:20px;font-size:11px}.consistency-table th{padding:11px 10px;text-align:left;color:#31443d;border-bottom:1px solid #cfd9d4;font-weight:700}.consistency-table th:nth-child(1){width:14%}.consistency-table th:nth-child(2){width:21%}.consistency-table th:nth-child(3){width:36%}.consistency-table th:nth-child(4){width:29%}.consistency-table td{padding:13px 10px;border-bottom:1px solid #dfe5e2;vertical-align:top;line-height:1.7;color:#52615a}.consistency-table td:first-child{font-weight:800;color:#20342b}.consistency-table td:nth-child(2){font-weight:700;color:#176b55}.consistency-table .verify-positive{color:#176b55;font-weight:700}.consistency-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.consistency-detail-card{padding:15px 16px;border:1px solid #dfe5e2;border-radius:13px;background:#fbfcfb}.consistency-detail-card.full{grid-column:1/-1;border-left:4px solid #d28a43;border-radius:0 13px 13px 0;background:#fffaf2}.consistency-detail-card small{display:block;color:#74817b;font-size:9px;margin-bottom:5px}.consistency-detail-card strong{display:block;color:#203b30;font-size:13px;line-height:1.5;margin-bottom:5px}.consistency-detail-card p{margin:0;color:#58655f;font-size:10.5px;line-height:1.7}.consistency-conclusion{margin-top:14px;padding:15px 17px;border-left:4px solid #176b55;background:#f4f8f6;border-radius:0 12px 12px 0;font-size:11px;line-height:1.75;color:#4f5d57}.consistency-conclusion b{color:#20342b}
+    .consistency-table{width:100%;border-collapse:collapse;table-layout:fixed;margin-top:20px;font-size:11px}.consistency-table th{padding:11px 10px;text-align:left;color:#31443d;border-bottom:1px solid #cfd9d4;font-weight:700}.consistency-table th:nth-child(1){width:14%}.consistency-table th:nth-child(2){width:21%}.consistency-table th:nth-child(3){width:36%}.consistency-table th:nth-child(4){width:29%}.consistency-table td{padding:13px 10px;border-bottom:1px solid #dfe5e2;vertical-align:top;line-height:1.7;color:#52615a}.consistency-table td:first-child{font-weight:800;color:#20342b}.consistency-table td:nth-child(2){font-weight:700;color:#176b55}.consistency-table .verify-positive{color:#176b55;font-weight:700}.consistency-table .consistency-highlight-row td{background:var(--orange);color:#fff!important;border-bottom-color:var(--orange-deep)}.consistency-table .consistency-highlight-row td:first-child,.consistency-table .consistency-highlight-row td:nth-child(2){color:#fff!important}.consistency-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.consistency-detail-card{padding:15px 16px;border:1px solid #dfe5e2;border-radius:13px;background:#fbfcfb}.consistency-detail-card.full{grid-column:1/-1;border-left:4px solid #d28a43;border-radius:0 13px 13px 0;background:#fffaf2}.consistency-detail-card small{display:block;color:#74817b;font-size:9px;margin-bottom:5px}.consistency-detail-card strong{display:block;color:#203b30;font-size:13px;line-height:1.5;margin-bottom:5px}.consistency-detail-card p{margin:0;color:#58655f;font-size:10.5px;line-height:1.7}.consistency-conclusion{margin-top:14px;padding:15px 17px;border-left:4px solid #176b55;background:#f4f8f6;border-radius:0 12px 12px 0;font-size:11px;line-height:1.75;color:#4f5d57}.consistency-conclusion b{color:#20342b}
     .report-advice-table,.focus-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:10.5px}.report-advice-table th,.focus-table th{padding:10px;text-align:left;color:#31443d;border-bottom:1px solid #cfd9d4}.report-advice-table td,.focus-table td{padding:12px 10px;border-bottom:1px solid #dfe5e2;vertical-align:top;line-height:1.65;color:#52615a}.report-advice-table td:first-child,.report-advice-table td:nth-child(2),.focus-table td:first-child{font-weight:800;color:#20342b}.focus-table th:nth-child(1){width:22%}.focus-table th:nth-child(2){width:29%}.focus-table th:nth-child(3){width:49%}.work-advice-table th:nth-child(1){width:15%}.work-advice-table th:nth-child(2){width:27%}.work-advice-table th:nth-child(3){width:58%}.management-action-table th:nth-child(1){width:14%}.management-action-table th:nth-child(2){width:31%}.management-action-table th:nth-child(3){width:55%}.two-column-advice th:first-child{width:40%}.focus-heading{display:flex;align-items:center;gap:8px;margin:20px 0 10px;font-size:16px}.focus-heading:before{content:"◎";color:#d28a43;font-weight:900}.focus-intro{font-size:11px;line-height:1.75;color:#59665f;margin:0 0 11px}.signal-hints{display:grid;gap:7px;margin:12px 0;font-size:10.5px;line-height:1.65}.signal-hints b{color:#20342b}.validation-brief{padding:14px 16px;border-left:4px solid #d28a43;background:#fff9ef;border-radius:0 10px 10px 0;font-size:10.5px;line-height:1.7;color:#5b625d}.validation-brief>b{display:block;color:#273a32;font-size:12px;margin-bottom:7px}.validation-brief ul,.usage-boundary ul{display:grid;gap:7px;margin:0;padding-left:20px}.validation-brief li,.usage-boundary li{padding-left:2px}.validation-brief strong{color:#31443d}.usage-boundary{margin-top:18px;padding:16px 18px;border:1px solid #ead7c0;border-left:4px solid #d28a43;border-radius:0 11px 11px 0;background:#fff9f0}.usage-boundary b{display:block;font-size:12px;margin-bottom:8px}.usage-boundary ul{font-size:10.5px;line-height:1.7;color:#665e55}.merged-interview-questions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.merged-interview-questions .interview-q{padding:9px 10px}.merged-interview-questions .interview-q span{width:25px;height:25px;font-size:9px}.merged-interview-questions .interview-q b{font-size:10px}.merged-interview-questions .interview-q p{font-size:8.5px;line-height:1.45}
     .appendix-result-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:7px}.appendix-boundary{border:1px solid #ead8c3;border-left:3px solid #d28a43;border-radius:0 10px 10px 0;padding:8px 10px;background:#fff9f0}.appendix-boundary b{display:block;font-size:10px;margin-bottom:4px}.appendix-boundary p{font-size:8px;line-height:1.45;color:#665f58;margin:0}
     .radar-wrap{text-align:center}.radar-wrap canvas{width:260px;max-width:100%;height:auto}.radar-caption{font-size:10px;color:var(--muted);line-height:1.65;margin-top:7px}
@@ -385,7 +389,10 @@
     .score-ring strong{color:var(--orange)}
     .facet-grid{border-color:#d8a679;border-top-color:var(--orange)}
     .facet-tier.primary{background:#9b3e0b}.facet-tier.support{background:#c05b19}.facet-tier.secondary{background:#e49356;color:#32180a}.facet-tier.verify{background:#7d5b46}
-    .facet-behavior em{background:#fff0df;color:var(--orange)}
+    .facet-behavior em{background:#f3f0ea;color:#71675f}
+    .facet-behavior em.high{background:#fff0dc;color:#c9500a}
+    .facet-behavior em.low{background:#e8f3ff;color:#2e6f9f}
+    .facet-behavior em.mid{background:#f1eee9;color:#70665e}
     .stacked{border-radius:0}.stacked .sn{background:#8d3609}.stacked .sx{background:#ac470e}.stacked .so{background:#ca5e18}.stacked .sg{background:#e17a24}.stacked .sc{background:#f2a24c}
     .print-toolbar{border-radius:0;background:#3a1a09;box-shadow:none}.print-toolbar button{border-radius:0}.print-toolbar button:first-child{background:var(--orange);color:#fff}
     .answer{border-radius:14px!important}
@@ -622,6 +629,24 @@
     #quiz .answer.is-selected:focus{
       background:linear-gradient(90deg,#ef7616,#f5a223)!important;
       box-shadow:0 4px 0 #bd540d,0 8px 18px rgba(170,74,6,.18)!important;
+    }
+    @media(min-width:801px){
+      #quiz .progress-wrap{max-width:900px;margin-top:30px}
+      #quiz .progress-head{font-size:14px;margin-bottom:11px}
+      #quiz .quiz-card{max-width:900px;padding:48px 48px 44px}
+      #quiz .simulation-status{min-height:98px;margin-bottom:24px;padding:31px 24px 17px}
+      #quiz .simulation-status strong{font-size:21px;line-height:1.35}
+      #quiz .simulation-status span{margin-top:7px;font-size:14px;line-height:1.55}
+      #quiz .day-ring{top:-34px;width:66px;height:66px;flex-basis:66px;font-size:17px}
+      #quiz .day-ring small{font-size:9px}
+      #quiz .scene-tag{min-height:30px;padding:5px 13px;font-size:13px}
+      #quiz .previous-question{padding:9px 16px;font-size:13px}
+      #quiz .scene{margin:13px 0 20px;padding:17px 20px;font-size:16px;line-height:1.7}
+      #quiz .question{margin:20px 0 27px;font-size:29px;line-height:1.45}
+      #quiz .answers{gap:14px}
+      #quiz .answer{min-height:58px;padding:16px 20px;font-size:16px;line-height:1.5}
+      #quiz .answer b{width:30px;height:30px;font-size:15px}
+      #quiz .scale .answer{padding:16px 8px;font-size:15px}
     }
     @media(max-width:600px){
       body.quiz-view .topbar{display:none}
@@ -1168,7 +1193,7 @@
         <div>
           <div class="eyebrow">候选人沉浸式测评</div>
           <h1>职场行为风格<br>招聘测评</h1>
-          <button class="cta" onclick="go('intro')">开始入职 →</button>
+          <button class="cta" onclick="go('intro')">开始测评 →</button>
           <div class="meta-row">
             <div class="meta"><strong>18—21</strong><span>分钟</span></div>
             <div class="meta"><strong>66</strong><span>个正式选择</span></div>
@@ -1204,26 +1229,26 @@
           <p>请在把测评链接交给候选人之前填写。姓名和岗位将自动进入结果卡与HR报告。</p>
           <div class="prefill-grid">
             <div class="field"><label for="candidateNameInput">候选人姓名 *</label><input id="candidateNameInput" maxlength="30" placeholder="例如：林知远" autocomplete="off"></div>
-            <div class="field"><label for="candidateRoleInput">应聘岗位</label><input id="candidateRoleInput" maxlength="40" placeholder="例如：项目运营经理" autocomplete="off"></div>
+            <div class="field"><label for="candidateRoleInput">应聘岗位</label><input id="candidateRoleInput" maxlength="40" placeholder="例如：游戏项目经理" autocomplete="off"></div>
           </div>
           <div class="field-error" id="candidateNameError">请先填写候选人姓名，再开始测评。</div>
         </div>
         <div class="journey" aria-label="30天模拟进程">
-          <div class="journey-step"><b>第1天</b><span>新人报到<br>认识团队</span></div>
-          <div class="journey-step"><b>第7天</b><span>接手项目<br>明确目标</span></div>
+          <div class="journey-step"><b>第1天</b><span>加入项目组<br>认识团队</span></div>
+          <div class="journey-step"><b>第7天</b><span>进入版本<br>明确目标</span></div>
           <div class="journey-step"><b>第14天</b><span>协作磨合<br>处理分歧</span></div>
-          <div class="journey-step"><b>第21天</b><span>交付冲刺<br>应对压力</span></div>
-          <div class="journey-step"><b>第30天</b><span>项目复盘<br>迎接转正</span></div>
+          <div class="journey-step"><b>第21天</b><span>版本冲刺<br>应对压力</span></div>
+          <div class="journey-step"><b>第30天</b><span>版本复盘<br>总结成长</span></div>
         </div>
         <div class="checklist">
           <div class="check"><i>✓</i><span>五个维度都是连续倾向，不划分固定人格，也没有统一的“最佳类型”。</span></div>
           <div class="check"><i>✓</i><span>结果用于帮助形成面试问题，不用于心理诊断。</span></div>
           <div class="check"><i>✓</i><span>本版本包含40道大五子维度题＋26道原创职场情景题，共66题，预计20—24分钟完成。</span></div>
           <div class="check"><i>✓</i><span>题目与报告文案均为本项目原创；参考公开的大五结构，不复制IPIP具体题目、第三方译文、报告文本或专有计分规则，也不宣称“IPIP认证”。</span></div>
-          <div class="check"><i>✓</i><span>当前题目以办公室和跨团队协作为主。招聘销售、生产、客服及一线服务岗位时，还需要增加贴近实际岗位的模拟任务，不能直接套用本结果。</span></div>
+          <div class="check"><i>✓</i><span>本测评反映候选人在当前情境下的行为倾向。结果仅供招聘参考，不能直接套用或单独作为录用依据。</span></div>
         </div>
-        <div class="privacy-box"><label><input id="privacyConsent" type="checkbox"><span><b>候选人知情确认：</b>我已了解本次测评用于形成招聘面试假设，不作心理诊断或自动淘汰；姓名、应聘岗位、作答结果和完成时间会提供给授权HR。企业应另行告知数据保存期限、访问范围以及查询、更正、删除和人工复核渠道。</span></label><div class="field-error" id="privacyConsentError">请阅读并确认候选人数据使用说明。</div></div>
-        <button class="cta" onclick="startQuiz()">我已了解，开始项目</button>
+        <div class="privacy-box"><label><input id="privacyConsent" type="checkbox"><span><b>候选人知情确认：</b>我已了解本次测评用于形成招聘面试假设，不作心理诊断或自动淘汰；姓名、应聘岗位、作答结果和完成时间仅提供给授权HR。企业方将对测评数据严格保密，不向无关第三方披露或外传。</span></label><div class="field-error" id="privacyConsentError">请阅读并确认候选人数据使用说明。</div></div>
+        <button class="cta" onclick="startQuiz()">我已了解，开始测评</button>
       </div>
     </section>
 
@@ -1241,8 +1266,8 @@
           <div class="score-chip" id="chipC"><small>尽责性</small><strong id="liveC">0</strong></div>
         </div>
         <div class="score-note formal-assessment-hidden">正式招聘模式不展示维度加分，避免影响后续选择。</div>
-        <div class="simulation-status"><div><strong id="missionTitle">新人报到 · 认识团队</strong><span id="missionCopy">你刚进入项目组，大家都在观察彼此的工作方式。</span></div><div class="day-ring"><div><small>DAY</small><span id="dayNumber">01</span></div></div></div>
-        <div class="scene-tag" id="qType">情境选择</div>
+        <div class="simulation-status"><div><strong id="missionTitle">加入项目组 · 认识团队</strong><span id="missionCopy">你刚进入项目组，大家都在观察彼此的工作方式。</span></div><div class="day-ring"><div><small>DAY</small><span id="dayNumber">01</span></div></div></div>
+        <div class="quiz-nav-row"><div class="scene-tag" id="qType">情境选择</div><button class="previous-question" id="previousQuestion" type="button" onclick="goPreviousQuestion()" hidden>← 上一题</button></div>
         <div class="scene" id="scene"></div>
         <div class="question" id="question"></div>
         <div class="answers" id="answers"></div>
@@ -1292,7 +1317,7 @@
                 <div class="cover-quality-title">报告可参考性 <span>【低】0–60　【正常】60–80　【高】80–100</span></div>
                 <div class="quality-compact" id="qualityRing" style="--angle:86%">
                   <div class="quality-compact-score"><strong id="qualityScore">86</strong><span>参考分</span></div>
-                  <div class="quality-compact-copy"><b id="qualityLevel">报告可参考性高</b><p id="qualityReason">作答完整，用时合理，没有发现明显异常。</p><div class="quality-compact-metrics"><span>答题率<b id="completionText">100%</b></span><span>跳题<b id="skippedText">0题</b></span><span>中断<b id="interruptionText">0次</b></span><span>用时<b id="elapsedText">11分42秒</b></span><span>极快作答<b id="fastAnswerText">14%</b></span><span>极慢作答<b id="slowAnswerText">0%</b></span><p class="quality-compact-note">极快指单题少于1.2秒，极慢指单题超过60秒；仅检查作答过程，不代表能力，也不能单独作为淘汰依据。</p></div></div>
+                  <div class="quality-compact-copy"><b id="qualityLevel">报告可参考性高</b><p id="qualityReason">作答完整，用时合理，没有发现明显异常。</p><div class="quality-compact-metrics"><span>答题率<b id="completionText">100%</b></span><span>跳题<b id="skippedText">0题</b></span><span>中断<b id="interruptionText">0次</b></span><span>用时<b id="elapsedText">11分42秒</b></span><span>极快作答<b id="fastAnswerText">14%</b></span><span>极慢作答<b id="slowAnswerText">0%</b></span><p class="quality-compact-note">极快指单题少于1.2秒，极慢指单题超过60秒；参考分会根据两类作答所占比例分级调整。该指标只反映作答过程，不代表能力，也不能单独作为淘汰依据。</p></div></div>
                 </div>
                 <div class="quality-compact-hidden" aria-hidden="true"><span id="qualityDecision">报告可参考性高</span><span id="concentrationText">适中</span><i id="timeQualityBar"></i><i id="fastAnswerBar"></i><i id="concentrationBar"></i></div>
               </div>
@@ -1384,8 +1409,8 @@
                 <tbody>
                   <tr><td>五维题得分最高</td><td id="behaviorPrimaryTitle">尽责性</td><td id="behaviorPrimaryCopy">候选人认为自己更常使用这一工作方式；它反映稳定的自我认知，但仍需要用真实工作行为确认。</td><td>—</td></tr>
                   <tr><td>情境题首选</td><td id="situationPrimaryTitle">尽责性 8 / 26</td><td id="situationPrimaryCopy">在具体工作情境中，也较常优先选择这一处理方向，说明该倾向不只停留在自我评价层面。</td><td class="verify-positive" id="consistencyPrimaryVerify">✓ 自我认知与情境选择一致，仍需案例确认</td></tr>
-                  <tr><td>一致性判断</td><td id="consistencyTitle">基本一致</td><td id="consistencyCopy">自我描述与情境选择方向相同，形成相互印证的行为线索；这种一致并不表示所有任务中都会采用同一种方式。</td><td>—</td></tr>
-                  <tr><td>情境切换范围</td><td id="adaptationRangeTitle">6道变化情境中使用4种策略</td><td id="adaptationRangeCopy">能根据对象、信息和压力变化调整处理方式，选择范围较广，并非固定使用单一策略。</td><td id="adaptationRangeVerify">追问“什么情况下会换做法、为什么换”</td></tr>
+                  <tr class="consistency-highlight-row"><td>一致性判断</td><td id="consistencyTitle">基本一致</td><td id="consistencyCopy">自我描述与情境选择方向相同，形成相互印证的行为线索；这种一致并不表示所有任务中都会采用同一种方式。</td><td>—</td></tr>
+                  <tr><td>多线切换范围</td><td id="adaptationRangeTitle">6道变化情境中使用4种策略</td><td id="adaptationRangeCopy">能根据对象、信息和压力变化调整处理方式，选择范围较广，并非固定使用单一策略。</td><td id="adaptationRangeVerify">追问“什么情况下会换做法、为什么换”</td></tr>
                   <tr><td>切换时常用方向</td><td id="adaptationPrimaryTitle">神经质（低倾向） 2 / 6</td><td id="adaptationPrimaryCopy">变化发生时，更常选择先稳定情绪、降低焦虑并保留判断空间的处理方向。</td><td id="adaptationPrimaryVerify">追问“请举例说明你在变化中如何保持冷静判断”</td></tr>
                 </tbody>
               </table>
@@ -1395,7 +1420,7 @@
                 <div class="consistency-detail-card"><small>策略切换特征</small><strong id="consistencyAdaptationTitle">会根据变化调整处理方式</strong><p id="consistencyAdaptationCopy">变化情境中使用多种策略，说明候选人并非只依赖一种固定反应，但需要确认调整是否及时、有效。</p></div>
                 <div class="consistency-detail-card full"><small>面试核实建议</small><strong id="consistencyVerifyTitle">重点追问“什么时候换、为什么换、结果如何”</strong><p id="consistencyVerifyCopy">建议要求候选人提供一个没有沿用常见做法的真实案例，说明当时出现了什么变化、本人如何判断、采取了什么不同动作，以及结果是否达到预期。</p></div>
               </div>
-              <div class="consistency-conclusion"><b>本页结论：</b><span id="consistencyConclusionCopy">候选人的自我认知与情境选择基本一致。建议在面试中重点追问情境切换的具体案例——什么情况下换了做法、为什么换、换了之后结果如何——以验证其策略调整的有效性。</span></div>
+              <div class="consistency-conclusion"><b>本页结论：</b><span id="consistencyConclusionCopy">候选人的自我认知与情境选择基本一致。建议在面试中重点追问多线切换的具体案例——什么情况下换了做法、为什么换、换了之后结果如何——以验证其策略调整的有效性。</span></div>
               <div hidden aria-hidden="true"><span id="situationSecondaryTitle"></span><span id="situationSecondaryCopy"></span><i id="situationS"></i><i id="situationX"></i><i id="situationO"></i><i id="situationG"></i><i id="situationC"></i><em id="legendS"></em><em id="legendX"></em><em id="legendO"></em><em id="legendG"></em><em id="legendC"></em></div>
               <div class="page-foot"><span>情境选择不代表唯一正确答案</span><span>7</span></div>
             </section>
@@ -1538,37 +1563,37 @@
 </div>
 <div class="score-toast formal-assessment-hidden" id="scoreToast" aria-hidden="true"></div>
 <script>
-const behaviorScene="请选择这句话与你过去一年真实表现的符合程度。";
+const behaviorScene="请根据你过去一年在游戏研发、运营或跨职能协作中的真实表现，选择符合程度。";
 const b=(chapter,q,mode,reverse=false)=>({chapter,type:"行为描述",scene:behaviorScene,q,mode,reverse});
 const scenarioTraitNames={S:"神经质（低倾向）",X:"外向性",O:"开放性",G:"宜人性",C:"尽责性"};
 const legacyScenarioMap={P:"X",E:"G",R:"S",A:"C"};
 const scenarioOpenOptions={
- "你接手一个跨部门项目，目标大致明确，但职责边界仍有空白。":["画出几种可能的协作结构，比较后选一种先运行。","你选择先探索不同的协作结构。"],
- "新成员加入后明显沉默，项目又必须快速启动。":["换一种轻量互动方式，让他先通过便签或示例表达想法。","你选择用新的互动形式帮助成员参与。"],
- "上级给出的目标比较模糊，但希望两周内看到进展。":["把目标改写成几种可能的成果形态，用样例请上级快速选择。","你选择用多种成果设想澄清模糊目标。"],
- "团队对项目价值缺乏兴趣。":["做一个简短原型或新场景演示，让大家直观看到项目可能性。","你选择用新场景和原型激发理解。"],
- "两个部门因资源安排发生争执，会议开始偏离主题。":["跳出现有分配方式，提出资源互换或分阶段共享的新方案。","你选择探索不同于原有分配方式的方案。"],
- "一名能力很强的同事经常打断别人。":["试用限时发言、书面补充等新的会议互动方式。","你选择通过新的互动机制改善会议。"],
- "你提出的方案被关键相关方公开质疑。":["把质疑转成新的假设，现场构想几个替代版本。","你选择从质疑中发展新的方案可能。"],
- "一位成员连续两次没有按约定交付。":["重新设计交付方式，尝试更短周期或不同协作工具。","你选择尝试新的交付路径。"],
- "距离上线只剩一天，发现一个影响有限但真实存在的问题。":["构想灰度发布、功能隔离等不完全延期的替代方案。","你选择探索兼顾上线与风险的新路径。"],
- "客户临时提出超出范围的新要求。":["寻找能满足核心诉求的新组合方案，而不是沿用原需求做法。","你选择重新组合方案以回应新诉求。"],
- "团队已连续高强度工作两周，但关键节点仍不能推迟。":["试用自动化、结对或新的工作方法，寻找不同的减负路径。","你选择用新方法改善高压下的工作方式。"],
- "你发现自己之前的判断可能错了。":["重新检查原有假设，并主动引入不同视角寻找新解释。","你选择开放地重构原有判断。"],
- "项目结果达标，但过程出现多次返工。":["寻找现有流程之外的做法，重新设计容易返工的环节。","你选择从新角度重新设计工作流程。"],
- "试行的新流程效果一般，团队意见分散。":["拆开流程中的有效部分，组合出两三个新版本再比较。","你选择重组已有经验并探索新版本。"],
- "一位表现稳定的成员最近开始频繁出错。":["从工具、任务变化或工作方式等新角度提出几种原因假设。","你选择从多个新视角理解异常变化。"],
- "管理层希望把成功经验快速复制到其他团队。":["提炼核心原理，让不同团队设计适合自身的新版本。","你选择保留原理并鼓励情境化创新。"],
- "核心客户突然要求提前一周交付，但需求范围没有减少。":["探索不同于原计划的交付形态，例如可体验版本或模块化交付。","你选择重新设想成果的交付形态。"],
- "客户对已交付成果表示不满，但反馈非常笼统。":["请客户用示例、草图或理想场景表达期待，打开新的理解角度。","你选择用多样表达方式发现真实期待。"],
- "你同时负责三个重要任务，现有资源只能确保两个按期完成。":["寻找任务合并、成果复用或替代路径，重新设计三项工作的关系。","你选择通过重组任务寻找新的资源空间。"],
- "一名关键成员提出转岗，短期内很难找到替代者。":["设计新的角色组合和知识共享方式，降低对单一岗位的依赖。","你选择重新构想角色与知识的配置方式。"],
- "你正在完成一项需要安静分析的任务，临时又被安排支持当天的重要汇报。":["把分析中的关键洞见转化为新的汇报结构，让两项任务相互支持。","你选择创造两项任务之间的新连接。"],
- "项目原本追求快速上线，客户临时把合规性改为第一优先级。":["从合规限制出发重新设计方案，寻找新的产品或流程可能。","你选择把新限制转化为重新设计的起点。"],
- "你加入一个沟通风格差异很大的临时团队：有人直接，有人习惯委婉表达。":["试用可视化、书面和口头相结合的多种沟通方式。","你选择探索适配不同风格的表达形式。"],
- "负责人突然请假，你需要临时代班一周，之后再回到个人贡献者角色。":["把这一周作为小型试验，尝试一种新的协调机制并记录效果。","你选择在临时角色中试验新的协作方法。"],
- "分析数据支持一个新方案，但一线同事普遍认为实际执行困难。":["把数据与一线经验组合成几个新假设，再设计对应验证方式。","你选择整合不同证据形成新的验证假设。"],
- "同一天里，客户沟通、团队问题和质量风险都需要你处理。":["尝试新的任务视图或批处理方式，重新组织三类工作的切换路径。","你选择用新的组织方式降低多任务切换损耗。"]
+ "你接手一个跨职能游戏版本项目，策划、美术、程序的目标大致明确，但职责边界仍有空白。":["画出几种可能的协作结构，比较后选一种先运行。","你选择先探索不同的协作结构。"],
+ "新加入项目组的成员在版本启动会上明显沉默，但任务需要尽快进入制作。":["换一种轻量互动方式，让他先通过便签或示例表达想法。","你选择用新的互动形式帮助成员参与。"],
+ "负责人只提出“提升新版本体验”，但希望两周内看到可玩的阶段成果。":["把目标改写成几种可能的成果形态，用样例请上级快速选择。","你选择用多种成果设想澄清模糊目标。"],
+ "团队对一个新玩法原型的价值缺乏兴趣。":["做一个简短原型或新场景演示，让大家直观看到项目可能性。","你选择用新场景和原型激发理解。"],
+ "策划与美术因版本资源排期发生争执，评审会开始偏离主题。":["跳出现有分配方式，提出资源互换或分阶段共享的新方案。","你选择探索不同于原有分配方式的方案。"],
+ "一名能力很强的核心成员在玩法评审中经常打断别人。":["试用限时发言、书面补充等新的会议互动方式。","你选择通过新的互动机制改善会议。"],
+ "你提出的玩法方案被主策或技术负责人在评审会上公开质疑。":["把质疑转成新的假设，现场构想几个替代版本。","你选择从质疑中发展新的方案可能。"],
+ "一位成员连续两次没有按约定提交版本素材或功能。":["重新设计交付方式，尝试更短周期或不同协作工具。","你选择尝试新的交付路径。"],
+ "距离版本上线只剩一天，测试发现一个影响有限但真实存在的问题。":["构想灰度发布、功能隔离等不完全延期的替代方案。","你选择探索兼顾上线与风险的新路径。"],
+ "渠道或发行方临时提出超出当前版本范围的新要求。":["寻找能满足核心诉求的新组合方案，而不是沿用原需求做法。","你选择重新组合方案以回应新诉求。"],
+ "项目组已连续高强度冲刺两周，但关键版本节点仍不能推迟。":["试用自动化、结对或新的工作方法，寻找不同的减负路径。","你选择用新方法改善高压下的工作方式。"],
+ "你发现自己对玩家需求或功能风险的判断可能错了。":["重新检查原有假设，并主动引入不同视角寻找新解释。","你选择开放地重构原有判断。"],
+ "版本按期上线，但策划、美术和程序之间出现多次返工。":["寻找现有流程之外的做法，重新设计容易返工的环节。","你选择从新角度重新设计工作流程。"],
+ "试行的新版本协作流程效果一般，团队意见分散。":["拆开流程中的有效部分，组合出两三个新版本再比较。","你选择重组已有经验并探索新版本。"],
+ "一位表现稳定的成员最近在版本内容中频繁出错。":["从工具、任务变化或工作方式等新角度提出几种原因假设。","你选择从多个新视角理解异常变化。"],
+ "管理层希望把一个项目组的成功研发经验快速复制到其他游戏项目。":["提炼核心原理，让不同团队设计适合自身的新版本。","你选择保留原理并鼓励情境化创新。"],
+ "发行计划突然要求版本提前一周上线，但内容范围没有减少。":["探索不同于原计划的交付形态，例如可体验版本或模块化交付。","你选择重新设想成果的交付形态。"],
+ "玩家社区或发行团队对已上线内容表示不满，但反馈非常笼统。":["请玩家代表或发行方用示例、草图或理想场景表达期待，打开新的理解角度。","你选择用多样表达方式发现真实期待。"],
+ "你同时负责版本功能、线上活动和紧急问题修复，现有资源只能确保两项按期完成。":["寻找任务合并、成果复用或替代路径，重新设计三项工作的关系。","你选择通过重组任务寻找新的资源空间。"],
+ "一名关键程序、美术或策划成员提出转组，短期内很难找到替代者。":["设计新的角色组合和知识共享方式，降低对单一岗位的依赖。","你选择重新构想角色与知识的配置方式。"],
+ "你正在进行需要安静分析的玩家数据复盘，临时又被安排支持当天的版本评审汇报。":["把分析中的关键洞见转化为新的汇报结构，让两项任务相互支持。","你选择创造两项任务之间的新连接。"],
+ "项目原本追求快速上线，但临时审核要求把合规与内容安全改为第一优先级。":["从合规限制出发重新设计方案，寻找新的产品或流程可能。","你选择把新限制转化为重新设计的起点。"],
+ "你加入一个由策划、美术、程序和运营组成的临时项目组，成员沟通风格差异很大。":["试用可视化、书面和口头相结合的多种沟通方式。","你选择探索适配不同风格的表达形式。"],
+ "项目负责人突然请假，你需要临时代管版本组一周，之后再回到原岗位。":["把这一周作为小型试验，尝试一种新的协调机制并记录效果。","你选择在临时角色中试验新的协作方法。"],
+ "玩家数据支持一个新玩法方向，但一线策划、程序或运营同事普遍认为实际落地困难。":["把数据与一线经验组合成几个新假设，再设计对应验证方式。","你选择整合不同证据形成新的验证假设。"],
+ "同一天里，玩家反馈、团队协作问题和版本质量风险都需要你处理。":["尝试新的任务视图或批处理方式，重新组织三类工作的切换路径。","你选择用新的组织方式降低多任务切换损耗。"]
 };
 const s=(chapter,scene,q,opts,adaptation=false)=>{
  const mapped=opts.map(([letter,text,legacy,feedback])=>{
@@ -1582,22 +1607,22 @@ const s=(chapter,scene,q,opts,adaptation=false)=>{
 };
 /* 历史题库已停用，仅保留作版本迁移比对；正式运行只加载下方 questionBank 与 scenarioBank。
 const legacyQuestions=[
- b("项目启动","目标明确后，我愿意主动推动团队尽快行动。","P"),
- b("项目启动","在陌生团队中，我通常会主动认识其他成员。","E"),
- b("项目启动","即使讨论节奏很快，我也愿意耐心听完不同意见。","R"),
- b("项目启动","作出重要决定前，我会检查关键事实是否充分。","A"),
- b("项目启动","当团队迟迟无法决定时，我愿意提出明确主张。","P"),
- s("项目启动","第一次会议进行了二十分钟，大家提出很多想法，却始终没有形成结论。","你最可能怎么做？",[
+ b("版本启动","目标明确后，我愿意主动推动团队尽快行动。","P"),
+ b("版本启动","在陌生团队中，我通常会主动认识其他成员。","E"),
+ b("版本启动","即使讨论节奏很快，我也愿意耐心听完不同意见。","R"),
+ b("版本启动","作出重要决定前，我会检查关键事实是否充分。","A"),
+ b("版本启动","当团队迟迟无法决定时，我愿意提出明确主张。","P"),
+ s("版本启动","第一次会议进行了二十分钟，大家提出很多想法，却始终没有形成结论。","你最可能怎么做？",[
   ["A","总结分歧，提出一个明确方向，请大家当场表态","P","讨论迅速聚焦，但有人表示还需要更多信息。"],
   ["B","邀请还没发言的人说说看法，寻找更容易形成共识的切入点","E","几位沉默的成员补充了重要背景。"],
   ["C","建议先确定大家都能接受的第一步，后续再逐渐推进","R","团队接受了一个小范围行动，项目开始向前移动。"],
   ["D","把各方案的依据、风险和缺失信息列出来","A","分歧变得清晰，团队发现两项信息尚未确认。"]]),
- b("项目启动","在多人场合，我能够自然地表达自己的想法。","E"),
- b("项目启动","我愿意持续支持同事完成困难或耗时的工作。","R"),
- b("项目启动","我习惯确认任务要求、标准和责任边界。","A"),
- b("项目启动","面对阻力时，我有时会犹豫是否继续推动自己的判断。","P",true),
- b("项目启动","我通常不会主动扩大自己的工作关系网络。","E",true),
- s("项目启动","负责人列出四项任务，其中一项难度高、信息少，而且没人主动领取。","你最可能怎么做？",[
+ b("版本启动","在多人场合，我能够自然地表达自己的想法。","E"),
+ b("版本启动","我愿意持续支持同事完成困难或耗时的工作。","R"),
+ b("版本启动","我习惯确认任务要求、标准和责任边界。","A"),
+ b("版本启动","面对阻力时，我有时会犹豫是否继续推动自己的判断。","P",true),
+ b("版本启动","我通常不会主动扩大自己的工作关系网络。","E",true),
+ s("版本启动","负责人列出四项任务，其中一项难度高、信息少，而且没人主动领取。","你最可能怎么做？",[
   ["A","主动认领，并要求负责人给予必要决策权限","P","你接下了任务，也同步明确了需要的权限。"],
   ["B","询问谁愿意一起完成，先组建一个小组","E","几位成员加入，任务有了初步协作网络。"],
   ["C","建议把任务拆小，由不同成员共同承担","R","任务被拆成多个稳定、可衔接的部分。"],
@@ -1708,32 +1733,32 @@ const questionBank=[
  b("尽责性","任务枯燥或没有监督时，我经常难以坚持到底。","C",true),
  b("尽责性","作出重要决定前，我会权衡后果并避免草率行动。","C"),
  b("尽责性","作出重要决定时，我有时会先行动，之后才考虑后果。","C",true),
- s("项目启动","你接手一个跨部门项目，目标大致明确，但职责边界仍有空白。","你会先做什么？",[["A","列出关键结果、责任人和首个节点，推动形成临时分工","P","你选择先建立行动抓手。"],["B","分别了解各方诉求，寻找愿意共同推动的人","E","你选择先建立支持网络。"],["C","组织一次短会，让成员充分说明困难和顾虑","R","你选择先稳定合作基础。"],["D","整理已有资料，标出未知信息和主要风险","A","你选择先补足判断依据。"]]),
- s("项目启动","新成员加入后明显沉默，项目又必须快速启动。","你更可能怎样处理？",[["A","邀请他单独交流，了解他能贡献什么","E","你选择先建立连接。"],["B","先给他一项边界清楚的小任务，逐步进入节奏","R","你选择提供稳定的进入方式。"],["C","说明目标和时间，直接确认他的责任范围","P","你选择快速明确行动。"],["D","补充工作文档和标准，降低理解偏差","A","你选择先完善信息。"]]),
- s("项目启动","上级给出的目标比较模糊，但希望两周内看到进展。","你的第一步是？",[["A","提出一个可验证的阶段目标并马上启动","P","你选择用行动澄清方向。"],["B","找关键相关方对齐他们真正期待的结果","E","你选择通过沟通校准目标。"],["C","把已有信息整理成假设、约束和待确认项","A","你选择结构化不确定性。"],["D","先保持现有节奏，等待目标进一步明确","R","你选择减少贸然变化。"]]),
- s("项目启动","团队对项目价值缺乏兴趣。","你会优先？",[["A","用具体收益和故事说明为什么值得投入","E","你选择激发认同。"],["B","明确必须完成的最低交付和截止时间","P","你选择先形成行动约束。"],["C","了解成员担忧，调整工作节奏与支持方式","R","你选择先处理真实顾虑。"],["D","补充数据和依据，验证项目价值是否成立","A","你选择先核验价值。"]]),
- s("协作冲突","两个部门因资源安排发生争执，会议开始偏离主题。","你更可能？",[["A","暂停争论，明确本次必须作出的决定","P","你选择收敛讨论。"],["B","重新梳理事实、约束和可选方案","A","你选择回到判断依据。"],["C","让双方各自说明最担心的损失","R","你选择先降低防御。"],["D","寻找双方都认可的人协助推动共识","E","你选择借助影响网络。"]]),
- s("协作冲突","一名能力很强的同事经常打断别人。","你会怎么做？",[["A","私下直接说明行为影响并约定改变方式","P","你选择明确反馈和要求。"],["B","引导他看到其他成员的贡献并争取配合","E","你选择通过认同促成改变。"],["C","在会议中建立轮流表达规则，保护参与感","R","你选择维护协作安全。"],["D","记录具体发生次数和后果，再进行反馈","A","你选择以事实支持反馈。"]]),
- s("协作冲突","你提出的方案被关键相关方公开质疑。","你会先？",[["A","请对方指出最关键的反对依据","A","你选择先检查判断。"],["B","继续说明方案价值，争取其他人的支持","E","你选择扩大影响。"],["C","承认分歧并邀请对方共同修改方案","R","你选择维护合作。"],["D","把争议转为几个可当场决定的问题","P","你选择推动收敛。"]]),
- s("协作冲突","一位成员连续两次没有按约定交付。","你倾向？",[["A","明确指出偏差、影响和新的交付要求","P","你选择直接推动纠偏。"],["B","了解阻碍并协调可用资源","R","你选择先提供支持。"],["C","核对任务定义、记录和依赖是否清楚","A","你选择检查系统原因。"],["D","请团队中的关键伙伴一起帮助他恢复节奏","E","你选择动员关系资源。"]]),
- s("交付压力","距离上线只剩一天，发现一个影响有限但真实存在的问题。","你会优先？",[["A","评估影响范围和可逆性，再决定是否上线","A","你选择基于风险判断。"],["B","明确负责人和最晚修复节点，推动立即处理","P","你选择先控制行动。"],["C","同步相关人员，确保大家理解影响与选择","E","你选择保持信息透明。"],["D","关注团队负荷，设计不会引发连续加班的方案","R","你选择兼顾可持续性。"]]),
- s("交付压力","客户临时提出超出范围的新要求。","你更可能？",[["A","说明影响并给出取舍方案，请客户决定优先级","P","你选择建立边界并推动决定。"],["B","先理解客户真正想解决的问题","E","你选择通过交流寻找空间。"],["C","与团队确认承受能力，再商量可行节奏","R","你选择保护稳定交付。"],["D","核对合同、范围和变更成本","A","你选择依据标准判断。"]]),
- s("交付压力","团队已连续高强度工作两周，但关键节点仍不能推迟。","你会？",[["A","砍掉低价值任务，重新集中资源确保节点","P","你选择重新聚焦结果。"],["B","向上争取资源，并让团队知道努力被看见","E","你选择动员支持。"],["C","调整轮班和休息，避免关键成员持续透支","R","你选择维护长期稳定。"],["D","分析工作量和瓶颈，找到最有效的减负点","A","你选择用分析改善负荷。"]]),
- s("交付压力","你发现自己之前的判断可能错了。","你会首先？",[["A","快速承认并发布新的行动方向","P","你选择尽快纠偏。"],["B","找受影响的人沟通，解释变化原因","E","你选择维护理解与信任。"],["C","给团队时间消化变化，并提供过渡支持","R","你选择降低变化冲击。"],["D","复查证据，确认错误范围和根因","A","你选择先确定问题边界。"]]),
- s("复盘改进","项目结果达标，但过程出现多次返工。","你会先复盘什么？",[["A","哪些节点缺少明确责任和决定","P","你选择检查推进机制。"],["B","哪些沟通没有让关键人员真正理解","E","你选择检查影响过程。"],["C","哪些变化打乱了团队稳定节奏","R","你选择检查协作负荷。"],["D","哪些标准、信息或检查环节缺失","A","你选择检查质量机制。"]]),
- s("复盘改进","试行的新流程效果一般，团队意见分散。","你会？",[["A","设定继续或停止的判断标准，再试一个周期","A","你选择用标准支持试验。"],["B","选定一个方向，缩小范围继续推进","P","你选择保持行动。"],["C","邀请使用者分享体验，寻找愿意支持的改法","E","你选择汇集使用者影响。"],["D","先保留旧流程，让团队逐步适应变化","R","你选择控制变化速度。"]]),
- s("复盘改进","一位表现稳定的成员最近开始频繁出错。","你会先？",[["A","私下了解他的状态和遇到的困难","R","你选择先理解变化原因。"],["B","核对错误类型、频率和发生环节","A","你选择先定位事实。"],["C","明确近期必须恢复的结果标准","P","你选择先稳定交付要求。"],["D","帮助他连接可以提供支持的同事","E","你选择调动协作资源。"]]),
- s("复盘改进","管理层希望把成功经验快速复制到其他团队。","你倾向？",[["A","形成简洁方案并选一个团队立即试点","P","你选择快速复制验证。"],["B","邀请原团队分享故事和经验，增强接受度","E","你选择通过示范影响。"],["C","给新团队适应空间，保留其原有有效做法","R","你选择尊重本地节奏。"],["D","提炼适用条件、关键步骤和风险边界","A","你选择先明确复制条件。"]]),
- s("客户变化","核心客户突然要求提前一周交付，但需求范围没有减少。","你会先做什么？",[["A","提出必须删减的范围和新的决定时限","P","你选择推动客户作出取舍。"],["B","与客户深入确认提前交付背后的真实原因","E","你选择先理解并影响需求。"],["C","评估团队承受力，设计分阶段交付方式","R","你选择兼顾承诺与稳定。"],["D","重新计算工期、依赖和质量风险","A","你选择先建立可靠判断。"]]),
- s("客户变化","客户对已交付成果表示不满，但反馈非常笼统。","你更可能？",[["A","要求对方指出最重要的三个差距","P","你选择快速聚焦问题。"],["B","安排交流，让客户完整描述期待和使用感受","E","你选择通过对话澄清体验。"],["C","先接住情绪并确认双方仍会共同解决问题","R","你选择维护合作安全。"],["D","对照原始需求和验收记录定位差异","A","你选择回到事实与标准。"]]),
- s("资源取舍","你同时负责三个重要任务，现有资源只能确保两个按期完成。","你会如何开始？",[["A","按业务影响排序，并立即暂停最低优先级任务","P","你选择迅速完成资源取舍。"],["B","与关键相关方沟通，争取资源或调整承诺","E","你选择通过影响扩大空间。"],["C","与团队讨论可持续节奏，避免多人同时透支","R","你选择保护长期执行力。"],["D","比较收益、风险、依赖和延误成本","A","你选择建立可解释的排序依据。"]]),
- s("资源取舍","一名关键成员提出转岗，短期内很难找到替代者。","你会优先？",[["A","确定知识交接、替代责任人和时间表","P","你选择先控制交付风险。"],["B","了解转岗动机，并沟通可能的保留方案","E","你选择通过交流寻找转机。"],["C","关注本人和团队感受，安排平稳过渡","R","你选择维护关系与稳定。"],["D","梳理关键知识、权限和单点依赖","A","你选择先识别系统风险。"]]),
- s("情境切换","你正在完成一项需要安静分析的任务，临时又被安排支持当天的重要汇报。","你会先怎样切换？",[["A","确认新的首要结果和截止点，立即重排任务顺序","P","你选择先重新建立行动优先级。"],["B","先与汇报人沟通受众和期待，快速进入对方语境","E","你选择通过交流完成角色切换。"],["C","安排好原任务的暂停点和恢复时间，减少来回切换损耗","R","你选择保持工作连续性。"],["D","列出两项任务的关键要求和不可遗漏信息，再开始切换","A","你选择用结构降低切换风险。"]],true),
- s("情境切换","项目原本追求快速上线，客户临时把合规性改为第一优先级。","你的第一反应是？",[["A","重新确认必须暂停、继续和重新负责的工作","P","你选择快速重设行动边界。"],["B","向相关人员解释变化原因并确认新的共同理解","E","你选择先建立变化共识。"],["C","设计过渡节奏，避免团队在一天内反复推翻全部工作","R","你选择降低变化冲击。"],["D","识别新增合规标准、证据缺口和高风险环节","A","你选择先重建判断依据。"]],true),
- s("情境切换","你加入一个沟通风格差异很大的临时团队：有人直接，有人习惯委婉表达。","你更可能先做什么？",[["A","明确会议必须形成的决定和争议升级方式","P","你选择先建立决策抓手。"],["B","分别了解成员习惯，并调整自己与不同对象的表达方式","E","你选择主动适配沟通对象。"],["C","先观察一轮互动，营造让不同成员都能发言的节奏","R","你选择建立安全稳定的合作氛围。"],["D","把会议规则、责任边界和记录方式写清楚","A","你选择用规则减少风格误解。"]],true),
- s("情境切换","负责人突然请假，你需要临时代班一周，之后再回到个人贡献者角色。","你会优先处理？",[["A","确认自己能决定什么，并接住最紧急的结果责任","P","你选择先承担临时决策责任。"],["B","建立信息联络表，让关键人员知道该找谁沟通","E","你选择先打通协作网络。"],["C","尽量保持原有节奏，给团队提供可预期的支持","R","你选择维持工作连续性。"],["D","梳理权限、未决事项和容易被遗漏的风险","A","你选择先建立清晰的接管清单。"]],true),
- s("情境切换","分析数据支持一个新方案，但一线同事普遍认为实际执行困难。","你会先？",[["A","设计一个范围可控的小试点，用结果决定是否继续","P","你选择用行动验证争议。"],["B","邀请一线人员说明阻力，并共同调整方案表达和做法","E","你选择通过参与扩大可接受度。"],["C","保留现有做法作为缓冲，让改变分阶段发生","R","你选择控制变化速度。"],["D","复查样本、假设和数据口径，确认结论是否遗漏现场条件","A","你选择先检查证据边界。"]],true),
- s("情境切换","同一天里，客户沟通、团队问题和质量风险都需要你处理。","你会怎样安排？",[["A","确定唯一首要事项并设定各任务的明确处理时段","P","你选择用优先级控制切换。"],["B","先同步相关人员的期待，争取时间和资源空间","E","你选择通过沟通协调多方需求。"],["C","为突发事项保留缓冲，避免所有人同时进入紧急状态","R","你选择维持可持续节奏。"],["D","按影响、时限、可逆性和风险建立排序标准","A","你选择用一致标准支持取舍。"]],true)
+ s("版本启动","你接手一个跨职能游戏版本项目，策划、美术、程序的目标大致明确，但职责边界仍有空白。","你会先做什么？",[["A","列出关键结果、责任人和首个节点，推动形成临时分工","P","你选择先建立行动抓手。"],["B","分别了解各方诉求，寻找愿意共同推动的人","E","你选择先建立支持网络。"],["C","组织一次短会，让成员充分说明困难和顾虑","R","你选择先稳定合作基础。"],["D","整理已有资料，标出未知信息和主要风险","A","你选择先补足判断依据。"]]),
+ s("版本启动","新加入项目组的成员在版本启动会上明显沉默，但任务需要尽快进入制作。","你更可能怎样处理？",[["A","邀请他单独交流，了解他能贡献什么","E","你选择先建立连接。"],["B","先给他一项边界清楚的小任务，逐步进入节奏","R","你选择提供稳定的进入方式。"],["C","说明目标和时间，直接确认他的责任范围","P","你选择快速明确行动。"],["D","补充工作文档和标准，降低理解偏差","A","你选择先完善信息。"]]),
+ s("版本启动","负责人只提出“提升新版本体验”，但希望两周内看到可玩的阶段成果。","你的第一步是？",[["A","提出一个可验证的阶段目标并马上启动","P","你选择用行动澄清方向。"],["B","找关键相关方对齐他们真正期待的结果","E","你选择通过沟通校准目标。"],["C","把已有信息整理成假设、约束和待确认项","A","你选择结构化不确定性。"],["D","先保持现有节奏，等待目标进一步明确","R","你选择减少贸然变化。"]]),
+ s("版本启动","团队对一个新玩法原型的价值缺乏兴趣。","你会优先？",[["A","用具体收益和故事说明为什么值得投入","E","你选择激发认同。"],["B","明确必须完成的最低交付和截止时间","P","你选择先形成行动约束。"],["C","了解成员担忧，调整工作节奏与支持方式","R","你选择先处理真实顾虑。"],["D","补充数据和依据，验证项目价值是否成立","A","你选择先核验价值。"]]),
+ s("协作冲突","策划与美术因版本资源排期发生争执，评审会开始偏离主题。","你更可能？",[["A","暂停争论，明确本次必须作出的决定","P","你选择收敛讨论。"],["B","重新梳理事实、约束和可选方案","A","你选择回到判断依据。"],["C","让双方各自说明最担心的损失","R","你选择先降低防御。"],["D","寻找双方都认可的人协助推动共识","E","你选择借助影响网络。"]]),
+ s("协作冲突","一名能力很强的核心成员在玩法评审中经常打断别人。","你会怎么做？",[["A","私下直接说明行为影响并约定改变方式","P","你选择明确反馈和要求。"],["B","引导他看到其他成员的贡献并争取配合","E","你选择通过认同促成改变。"],["C","在会议中建立轮流表达规则，保护参与感","R","你选择维护协作安全。"],["D","记录具体发生次数和后果，再进行反馈","A","你选择以事实支持反馈。"]]),
+ s("协作冲突","你提出的玩法方案被主策或技术负责人在评审会上公开质疑。","你会先？",[["A","请对方指出最关键的反对依据","A","你选择先检查判断。"],["B","继续说明方案价值，争取其他人的支持","E","你选择扩大影响。"],["C","承认分歧并邀请对方共同修改方案","R","你选择维护合作。"],["D","把争议转为几个可当场决定的问题","P","你选择推动收敛。"]]),
+ s("协作冲突","一位成员连续两次没有按约定提交版本素材或功能。","你倾向？",[["A","明确指出偏差、影响和新的交付要求","P","你选择直接推动纠偏。"],["B","了解阻碍并协调可用资源","R","你选择先提供支持。"],["C","核对任务定义、记录和依赖是否清楚","A","你选择检查系统原因。"],["D","请团队中的关键伙伴一起帮助他恢复节奏","E","你选择动员关系资源。"]]),
+ s("版本冲刺","距离版本上线只剩一天，测试发现一个影响有限但真实存在的问题。","你会优先？",[["A","评估影响范围和可逆性，再决定是否上线","A","你选择基于风险判断。"],["B","明确负责人和最晚修复节点，推动立即处理","P","你选择先控制行动。"],["C","同步相关人员，确保大家理解影响与选择","E","你选择保持信息透明。"],["D","关注团队负荷，设计不会引发连续加班的方案","R","你选择兼顾可持续性。"]]),
+ s("版本冲刺","渠道或发行方临时提出超出当前版本范围的新要求。","你更可能？",[["A","说明对版本范围和排期的影响，并给出取舍方案，请发行方确认优先级","P","你选择建立边界并推动决定。"],["B","先理解发行方真正想解决的市场或玩家问题","E","你选择通过交流寻找空间。"],["C","与团队确认承受能力，再商量可行节奏","R","你选择保护稳定交付。"],["D","核对版本目标、合作约定、范围和变更成本","A","你选择依据标准判断。"]]),
+ s("版本冲刺","项目组已连续高强度冲刺两周，但关键版本节点仍不能推迟。","你会？",[["A","砍掉低价值任务，重新集中资源确保节点","P","你选择重新聚焦结果。"],["B","向上争取资源，并让团队知道努力被看见","E","你选择动员支持。"],["C","调整轮班和休息，避免关键成员持续透支","R","你选择维护长期稳定。"],["D","分析工作量和瓶颈，找到最有效的减负点","A","你选择用分析改善负荷。"]]),
+ s("版本冲刺","你发现自己对玩家需求或功能风险的判断可能错了。","你会首先？",[["A","快速承认并发布新的行动方向","P","你选择尽快纠偏。"],["B","找受影响的人沟通，解释变化原因","E","你选择维护理解与信任。"],["C","给团队时间消化变化，并提供过渡支持","R","你选择降低变化冲击。"],["D","复查证据，确认错误范围和根因","A","你选择先确定问题边界。"]]),
+ s("版本复盘","版本按期上线，但策划、美术和程序之间出现多次返工。","你会先复盘什么？",[["A","哪些节点缺少明确责任和决定","P","你选择检查推进机制。"],["B","哪些沟通没有让关键人员真正理解","E","你选择检查影响过程。"],["C","哪些变化打乱了团队稳定节奏","R","你选择检查协作负荷。"],["D","哪些标准、信息或检查环节缺失","A","你选择检查质量机制。"]]),
+ s("版本复盘","试行的新版本协作流程效果一般，团队意见分散。","你会？",[["A","设定继续或停止的判断标准，再试一个周期","A","你选择用标准支持试验。"],["B","选定一个方向，缩小范围继续推进","P","你选择保持行动。"],["C","邀请使用者分享体验，寻找愿意支持的改法","E","你选择汇集使用者影响。"],["D","先保留旧流程，让团队逐步适应变化","R","你选择控制变化速度。"]]),
+ s("版本复盘","一位表现稳定的成员最近在版本内容中频繁出错。","你会先？",[["A","私下了解他的状态和遇到的困难","R","你选择先理解变化原因。"],["B","核对错误类型、频率和发生环节","A","你选择先定位事实。"],["C","明确近期必须恢复的结果标准","P","你选择先稳定交付要求。"],["D","帮助他连接可以提供支持的同事","E","你选择调动协作资源。"]]),
+ s("版本复盘","管理层希望把一个项目组的成功研发经验快速复制到其他游戏项目。","你倾向？",[["A","形成简洁方案并选一个团队立即试点","P","你选择快速复制验证。"],["B","邀请原团队分享故事和经验，增强接受度","E","你选择通过示范影响。"],["C","给新团队适应空间，保留其原有有效做法","R","你选择尊重本地节奏。"],["D","提炼适用条件、关键步骤和风险边界","A","你选择先明确复制条件。"]]),
+ s("玩家与发行","发行计划突然要求版本提前一周上线，但内容范围没有减少。","你会先做什么？",[["A","提出必须删减的版本内容和新的决定时限","P","你选择推动发行方作出取舍。"],["B","与发行团队确认提前上线背后的市场节点或玩家需求","E","你选择先理解并影响需求。"],["C","评估团队承受力，设计分阶段交付方式","R","你选择兼顾承诺与稳定。"],["D","重新计算工期、依赖和质量风险","A","你选择先建立可靠判断。"]]),
+ s("玩家与发行","玩家社区或发行团队对已上线内容表示不满，但反馈非常笼统。","你更可能？",[["A","请对方指出最重要的三个玩家体验差距","P","你选择快速聚焦问题。"],["B","整理玩家反馈并与发行团队沟通，让对方完整描述期待和实际体验","E","你选择通过对话澄清体验。"],["C","先接住情绪并确认双方仍会共同解决问题","R","你选择维护合作安全。"],["D","对照版本目标、需求文档和验收记录定位差异","A","你选择回到事实与标准。"]]),
+ s("版本资源","你同时负责版本功能、线上活动和紧急问题修复，现有资源只能确保两项按期完成。","你会如何开始？",[["A","按业务影响排序，并立即暂停最低优先级任务","P","你选择迅速完成资源取舍。"],["B","与关键相关方沟通，争取资源或调整承诺","E","你选择通过影响扩大空间。"],["C","与团队讨论可持续节奏，避免多人同时透支","R","你选择保护长期执行力。"],["D","比较收益、风险、依赖和延误成本","A","你选择建立可解释的排序依据。"]]),
+ s("版本资源","一名关键程序、美术或策划成员提出转组，短期内很难找到替代者。","你会优先？",[["A","确定知识交接、替代责任人和时间表","P","你选择先控制交付风险。"],["B","了解转岗动机，并沟通可能的保留方案","E","你选择通过交流寻找转机。"],["C","关注本人和团队感受，安排平稳过渡","R","你选择维护关系与稳定。"],["D","梳理关键知识、权限和单点依赖","A","你选择先识别系统风险。"]]),
+ s("多线切换","你正在进行需要安静分析的玩家数据复盘，临时又被安排支持当天的版本评审汇报。","你会先怎样切换？",[["A","确认新的首要结果和截止点，立即重排任务顺序","P","你选择先重新建立行动优先级。"],["B","先与汇报人沟通受众和期待，快速进入对方语境","E","你选择通过交流完成角色切换。"],["C","安排好原任务的暂停点和恢复时间，减少来回切换损耗","R","你选择保持工作连续性。"],["D","列出两项任务的关键要求和不可遗漏信息，再开始切换","A","你选择用结构降低切换风险。"]],true),
+ s("多线切换","项目原本追求快速上线，但临时审核要求把合规与内容安全改为第一优先级。","你的第一反应是？",[["A","重新确认必须暂停、继续和重新负责的工作","P","你选择快速重设行动边界。"],["B","向相关人员解释变化原因并确认新的共同理解","E","你选择先建立变化共识。"],["C","设计过渡节奏，避免团队在一天内反复推翻全部工作","R","你选择降低变化冲击。"],["D","识别新增合规标准、证据缺口和高风险环节","A","你选择先重建判断依据。"]],true),
+ s("多线切换","你加入一个由策划、美术、程序和运营组成的临时项目组，成员沟通风格差异很大。","你更可能先做什么？",[["A","明确会议必须形成的决定和争议升级方式","P","你选择先建立决策抓手。"],["B","分别了解成员习惯，并调整自己与不同对象的表达方式","E","你选择主动适配沟通对象。"],["C","先观察一轮互动，营造让不同成员都能发言的节奏","R","你选择建立安全稳定的合作氛围。"],["D","把会议规则、责任边界和记录方式写清楚","A","你选择用规则减少风格误解。"]],true),
+ s("多线切换","项目负责人突然请假，你需要临时代管版本组一周，之后再回到原岗位。","你会优先处理？",[["A","确认自己能决定什么，并接住最紧急的结果责任","P","你选择先承担临时决策责任。"],["B","建立信息联络表，让关键人员知道该找谁沟通","E","你选择先打通协作网络。"],["C","尽量保持原有节奏，给团队提供可预期的支持","R","你选择维持工作连续性。"],["D","梳理权限、未决事项和容易被遗漏的风险","A","你选择先建立清晰的接管清单。"]],true),
+ s("多线切换","玩家数据支持一个新玩法方向，但一线策划、程序或运营同事普遍认为实际落地困难。","你会先？",[["A","设计一个范围可控的小试点，用结果决定是否继续","P","你选择用行动验证争议。"],["B","邀请策划、程序和运营说明落地阻力，并共同调整玩法方案和实施路径","E","你选择通过参与扩大可接受度。"],["C","保留现有做法作为缓冲，让改变分阶段发生","R","你选择控制变化速度。"],["D","复查样本、假设和数据口径，确认结论是否遗漏现场条件","A","你选择先检查证据边界。"]],true),
+ s("多线切换","同一天里，玩家反馈、团队协作问题和版本质量风险都需要你处理。","你会怎样安排？",[["A","确定唯一首要事项并设定各任务的明确处理时段","P","你选择用优先级控制切换。"],["B","先同步相关人员的期待，争取时间和资源空间","E","你选择通过沟通协调多方需求。"],["C","为突发事项保留缓冲，避免所有人同时进入紧急状态","R","你选择维持可持续节奏。"],["D","按影响、时限、可逆性和风险建立排序标准","A","你选择用一致标准支持取舍。"]],true)
 ];
 const behaviorBank=questionBank.slice(0,40),scenarioBank=questionBank.slice(40);
 const questions=[];
@@ -1863,7 +1888,7 @@ function renderFacetAnalysis(report){
 }
 const colors={C:"#8d3609",X:"#ac470e",G:"#ca5e18",S:"#e17a24",O:"#f2a24c"};
 let index=0,scores={C:0,X:0,G:0,S:0,O:0},counts={C:0,X:0,G:0,S:0,O:0},situations={S:0,X:0,O:0,G:0,C:0};
-let livePoints={C:0,X:0,G:0,S:0,O:0},startedAt=0,questionShownAt=0,responseTimes=[],behaviorChoices=[],adaptationChoices=[],interruptionCount=0;
+let livePoints={C:0,X:0,G:0,S:0,O:0},startedAt=0,questionShownAt=0,responseTimes=[],behaviorChoices=[],adaptationChoices=[],responseHistory=[],advanceTimer=0,interruptionCount=0;
 document.addEventListener("visibilitychange",()=>{if(document.hidden&&startedAt&&document.getElementById("quiz")?.classList.contains("active"))interruptionCount+=1});
 function normalizeScenarioCounts(value={}){
  const normalized={S:0,X:0,O:0,G:0,C:0};
@@ -1892,30 +1917,30 @@ function startQuiz(){
  if(!consent.checked){consentError.classList.add("show");consent.focus();return}
  consentError.classList.remove("show");
  error.classList.remove("show");applyCandidateInfo(info.name,info.role);questions.forEach(item=>delete item.presentedOpts);
- index=0;scores={C:0,X:0,G:0,S:0,O:0};counts={C:0,X:0,G:0,S:0,O:0};situations={S:0,X:0,O:0,G:0,C:0};livePoints={C:0,X:0,G:0,S:0,O:0};responseTimes=[];behaviorChoices=[];adaptationChoices=[];interruptionCount=0;startedAt=Date.now();updateAllLiveScores();go("quiz");render()
+ clearTimeout(advanceTimer);advanceTimer=0;index=0;scores={C:0,X:0,G:0,S:0,O:0};counts={C:0,X:0,G:0,S:0,O:0};situations={S:0,X:0,O:0,G:0,C:0};livePoints={C:0,X:0,G:0,S:0,O:0};responseTimes=[];behaviorChoices=[];adaptationChoices=[];responseHistory=[];interruptionCount=0;startedAt=Date.now();updateAllLiveScores();go("quiz");render()
 }
 const phaseNarratives={
- "日常行动":"你刚进入项目组。新的同事、陌生的流程和第一批任务同时来到面前。",
- "项目启动":"项目正式启动，但目标、职责和合作方式仍在快速形成。",
- "协作推进":"你开始与不同部门共同推进任务，沟通方式正在影响团队对你的判断。",
- "协作冲突":"项目进入磨合期，资源、立场与工作习惯之间出现了真实分歧。",
- "压力与变化":"时间开始变紧，原计划不断变化，你需要在压力中保持判断。",
- "交付压力":"关键节点临近，速度、质量、关系和团队负荷同时拉扯。",
- "交付习惯":"项目进入连续交付阶段，你的跟进、复核与协作习惯逐渐显现。",
- "复盘改进":"阶段成果已经出现，你需要从问题中提炼经验并推动改进。",
+ "日常行动":"你刚加入游戏项目组。新的伙伴、研发流程和第一批版本任务同时来到面前。",
+ "版本启动":"游戏版本正式启动，但玩法目标、职责和研发协作方式仍在快速形成。",
+ "协作推进":"你开始与策划、美术、程序和运营共同推进版本，沟通方式正在影响团队对你的判断。",
+ "协作冲突":"版本进入磨合期，研发资源、专业判断与工作习惯之间出现了真实分歧。",
+ "压力与变化":"版本节点逐渐逼近，需求和玩家反馈不断变化，你需要在压力中保持判断。",
+ "版本冲刺":"版本上线临近，研发速度、产品质量、协作关系和团队负荷同时拉扯。",
+ "交付习惯":"项目进入持续迭代阶段，你的跟进、复核与跨职能协作习惯逐渐显现。",
+ "版本复盘":"版本成果已经上线，你需要从玩家反馈和研发问题中提炼经验并推动改进。",
  "成长改进":"转正节点临近，你正在回看自己如何学习、支持他人和解决问题。",
- "客户变化":"外部需求发生变化，项目组需要重新理解客户并调整承诺。",
- "资源取舍":"转正汇报前，资源与优先级冲突成为最后一轮考验。"
- ,"情境切换":"工作要求不断变化，你需要在不同角色、对象和判断方式之间重新选择。"
+ "玩家与发行":"玩家与发行需求发生变化，项目组需要重新理解目标并调整版本承诺。",
+ "版本资源":"版本复盘前，研发资源与优先级冲突成为最后一轮考验。"
+ ,"多线切换":"工作要求不断变化，你需要在不同角色、对象和判断方式之间重新选择。"
 };
 function dayForQuestion(i){return Math.min(30,Math.floor(i*30/questions.length)+1)}
 function missionForDay(day){
- if(day<=5)return ["新人报到 · 认识团队","你刚加入公司，正在建立第一印象并理解工作规则。"];
- if(day<=10)return ["接手项目 · 明确目标","你开始承担真实任务，需要在不确定中找到行动抓手。"];
- if(day<=16)return ["协作磨合 · 处理分歧","跨部门合作进入深水区，关系与结果开始相互影响。"];
- if(day<=22)return ["交付冲刺 · 应对压力","截止时间临近，你需要平衡速度、质量和团队负荷。"];
- if(day<=27)return ["变化应对 · 重新取舍","客户和资源出现变化，原有计划需要重新判断。"];
- return ["转正复盘 · 总结成长","30天旅程接近尾声，你需要复盘项目并面对新的选择。"];
+ if(day<=5)return ["加入项目组 · 认识团队","你刚加入游戏项目组，正在建立第一印象并理解研发协作规则。"];
+ if(day<=10)return ["进入版本 · 明确目标","你开始承担真实版本任务，需要在不确定中找到行动抓手。"];
+ if(day<=16)return ["协作磨合 · 处理分歧","策划、美术、程序和运营的协作进入深水区，关系与版本结果开始相互影响。"];
+ if(day<=22)return ["版本冲刺 · 应对压力","版本上线时间临近，你需要平衡研发速度、产品质量和团队负荷。"];
+ if(day<=27)return ["玩家反馈 · 重新取舍","玩家反馈、发行计划和研发资源出现变化，原有版本计划需要重新判断。"];
+ return ["版本复盘 · 总结成长","30天旅程接近尾声，你需要复盘版本协作并面对新的选择。"];
 }
 function shuffledOptions(options){const copy=[...options];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]]}return copy}
 function render(){
@@ -1923,7 +1948,8 @@ function render(){
  document.getElementById("chapter").textContent=`入职第${day}天 · ${x.chapter}`;document.getElementById("counter").textContent=`${index+1} / ${questions.length}`;
  document.getElementById("dayNumber").textContent=String(day).padStart(2,"0");document.getElementById("missionTitle").textContent=mission[0];document.getElementById("missionCopy").textContent=mission[1];
  document.getElementById("progressBar").style.width=`${index/questions.length*100}%`;document.getElementById("qType").textContent=x.opts?"关键情境选择":"当日行动记录";
- document.getElementById("scene").textContent=x.opts?x.scene:phaseNarratives[x.chapter];document.getElementById("question").textContent=x.q;
+ const previousButton=document.getElementById("previousQuestion");previousButton.hidden=index===0;previousButton.disabled=index===0;
+ document.getElementById("scene").textContent=x.opts?x.scene:(phaseNarratives[x.chapter]||x.scene||behaviorScene);document.getElementById("question").textContent=x.q;
  const box=document.getElementById("answers");box.innerHTML="";document.getElementById("feedback").className="feedback";
  if(x.opts){const letters=["A","B","C","D","E"],presented=x.presentedOpts||(x.presentedOpts=shuffledOptions(x.opts));presented.forEach((o,i)=>{const b=document.createElement("button");b.className="answer";b.setAttribute("aria-pressed","false");b.innerHTML=`<b>${letters[i]}</b>${o[1]}`;b.onclick=()=>choose(o[2],o[3],x.adaptation,b);box.appendChild(b)})}
  else{box.className="answers scale";["非常不符合","比较不符合","不确定","比较符合","非常符合"].forEach((t,i)=>{const b=document.createElement("button");b.className="answer";b.setAttribute("aria-pressed","false");b.textContent=t;b.onclick=()=>chooseScale(x.mode,i+1,x.reverse,b);box.appendChild(b)})}
@@ -1943,11 +1969,24 @@ function lockSelectedAnswer(button){
  if(!button||button.disabled||document.querySelector(".answer.is-selected"))return false;
  button.classList.add("is-selected");button.setAttribute("aria-pressed","true");
  document.querySelectorAll(".answer").forEach(item=>{item.disabled=true;if(item!==button)item.setAttribute("aria-pressed","false")});
+ const previousButton=document.getElementById("previousQuestion");if(previousButton)previousButton.disabled=true;
  return true;
 }
-function choose(mode,copy,isAdaptation=false,button){if(!lockSelectedAnswer(button))return;recordResponse();situations[mode]+=1;if(isAdaptation)adaptationChoices.push(mode);if(FORMAL_RECRUITMENT_MODE){setTimeout(next,220);return}const f=document.getElementById("feedback");f.textContent=copy;f.className="feedback show";setTimeout(next,650)}
-function chooseScale(mode,val,reverse,button){if(!lockSelectedAnswer(button))return;recordResponse();const earned=reverse?6-val:val;scores[mode]+=earned;counts[mode]+=1;behaviorChoices.push(val);addLivePoints(mode,earned);setTimeout(next,220)}
-function next(){index++;if(index<questions.length)render();else showResult()}
+function choose(mode,copy,isAdaptation=false,button){if(!lockSelectedAnswer(button))return;recordResponse();situations[mode]+=1;if(isAdaptation)adaptationChoices.push(mode);responseHistory.push({kind:"scenario",mode,isAdaptation});if(FORMAL_RECRUITMENT_MODE){advanceTimer=setTimeout(next,220);return}const f=document.getElementById("feedback");f.textContent=copy;f.className="feedback show";advanceTimer=setTimeout(next,650)}
+function chooseScale(mode,val,reverse,button){if(!lockSelectedAnswer(button))return;recordResponse();const earned=reverse?6-val:val;scores[mode]+=earned;counts[mode]+=1;behaviorChoices.push(val);if(FORMAL_RECRUITMENT_MODE)livePoints[mode]+=earned;else addLivePoints(mode,earned);responseHistory.push({kind:"scale",mode,val,earned});advanceTimer=setTimeout(next,220)}
+function goPreviousQuestion(){
+ if(index<=0||!responseHistory.length)return;
+ clearTimeout(advanceTimer);advanceTimer=0;
+ const previous=responseHistory.pop();index-=1;responseTimes.pop();
+ if(previous.kind==="scenario"){
+  situations[previous.mode]=Math.max(0,situations[previous.mode]-1);
+  if(previous.isAdaptation)adaptationChoices.pop();
+ }else{
+  scores[previous.mode]=Math.max(0,scores[previous.mode]-previous.earned);counts[previous.mode]=Math.max(0,counts[previous.mode]-1);livePoints[previous.mode]=Math.max(0,livePoints[previous.mode]-previous.earned);behaviorChoices.pop();updateAllLiveScores();
+ }
+ render();window.scrollTo({top:0,behavior:"smooth"});
+}
+function next(){advanceTimer=0;index++;if(index<questions.length)render();else showResult()}
 const roleTypes={
  "0000":{name:"冷静观察家",code:"观察型",line:"习惯先看清局面，再选择最合适的介入方式。"},
  "0001":{name:"技术极客",code:"A",line:"喜欢钻研事实、逻辑和专业标准，用高质量解决复杂问题。"},
@@ -1983,22 +2022,25 @@ function applyProfileStability(displays,role,situationData={}){
 }
 function calculateQuality(profileDisplays=null){
  const elapsedSec=Math.max(1,Math.round((Date.now()-startedAt)/1000));
- const fastRatio=responseTimes.length?responseTimes.filter(v=>v<1.2).length/responseTimes.length:0;
- const slowRatio=responseTimes.length?responseTimes.filter(v=>v>60).length/responseTimes.length:0,answeredCount=responseTimes.length,totalQuestions=questions.length,skippedCount=Math.max(0,totalQuestions-answeredCount),answerRate=totalQuestions?Math.round(answeredCount/totalQuestions*100):0;
+ const fastCount=responseTimes.filter(v=>v<1.2).length,slowCount=responseTimes.filter(v=>v>60).length;
+ const fastRatio=responseTimes.length?fastCount/responseTimes.length:0;
+ const slowRatio=responseTimes.length?slowCount/responseTimes.length:0,answeredCount=responseTimes.length,totalQuestions=questions.length,skippedCount=Math.max(0,totalQuestions-answeredCount),answerRate=totalQuestions?Math.round(answeredCount/totalQuestions*100):0;
  const choiceCounts=[1,2,3,4,5].map(v=>behaviorChoices.filter(x=>x===v).length),behaviorConcentration=behaviorChoices.length?Math.max(...choiceCounts)/behaviorChoices.length:0;
  const situationTotal=Object.values(situations).reduce((a,b)=>a+b,0),situationConcentration=situationTotal?Math.max(...Object.values(situations))/situationTotal:0;
  let longestSameRun=0,currentRun=0,lastChoice=null;behaviorChoices.forEach(choice=>{currentRun=choice===lastChoice?currentRun+1:1;lastChoice=choice;longestSameRun=Math.max(longestSameRun,currentRun)});
  const profileValues=profileDisplays?Object.values(profileDisplays).map(Number).filter(Number.isFinite):[],profileRange=profileValues.length?Math.max(...profileValues)-Math.min(...profileValues):null,flatProfile=profileRange!==null&&profileRange<=8,regularityRisk=longestSameRun>=7;
  let score=100,reasons=[];
  if(elapsedSec<120){score-=18;reasons.push("总用时低于2分钟")}else if(elapsedSec<300){score-=10;reasons.push("总用时明显偏短")}else if(elapsedSec<600){score-=4;reasons.push("总用时略短")}
- if(fastRatio>.5){score-=20;reasons.push("过半题目作答过快")}else if(fastRatio>.25){score-=10;reasons.push("较多题目作答过快")}else if(fastRatio>.1){score-=4;reasons.push("少量题目作答过快")}
+ const fastPct=Math.round(fastRatio*100),slowPct=Math.round(slowRatio*100);
+ if(fastRatio>=.4){score-=24;reasons.push(`极快作答占${fastPct}%，比例很高`)}else if(fastRatio>=.25){score-=16;reasons.push(`极快作答占${fastPct}%，比例偏高`)}else if(fastRatio>=.15){score-=10;reasons.push(`极快作答占${fastPct}%，需要关注`)}else if(fastRatio>=.08){score-=5;reasons.push(`极快作答占${fastPct}%`)}else if(fastRatio>=.03){score-=2;reasons.push(`少量题目作答极快（${fastPct}%）`)}
+ if(slowRatio>=.25){score-=22;reasons.push(`极慢作答占${slowPct}%，比例很高`)}else if(slowRatio>=.15){score-=14;reasons.push(`极慢作答占${slowPct}%，比例偏高`)}else if(slowRatio>=.08){score-=8;reasons.push(`极慢作答占${slowPct}%，需要关注`)}else if(slowRatio>=.03){score-=3;reasons.push(`少量题目作答极慢（${slowPct}%）`)}
  if(behaviorConcentration>.9){score-=28;reasons.push("行为题几乎全部选择同一档")}else if(behaviorConcentration>.7){score-=16;reasons.push("行为题选项高度集中")}else if(behaviorConcentration>.55){score-=7;reasons.push("行为题选项较集中")}
  if(longestSameRun>=10){score-=20;reasons.push(`连续${longestSameRun}道行为题选择同一档，可能没有逐题区分`)}else if(longestSameRun>=7){score-=12;reasons.push(`连续${longestSameRun}道行为题选择同一档，面试时需要确认作答方式`)}
  if(situationConcentration>.75){score-=10;reasons.push("情景选择过度集中")}else if(situationConcentration>.6){score-=5;reasons.push("情景选择较集中")}
  if(flatProfile){score-=15;reasons.push(`五项最高分与最低分只差${profileRange}分，暂时看不出明显主次`)}
  score=Math.max(40,Math.min(100,score));
  const level=score>=80?"报告可参考性高":score>=60?"报告可参考性正常":"报告可参考性低，建议重新测评";
- return {score,level,elapsedSec,fastRatio,slowRatio,behaviorConcentration,situationConcentration,longestSameRun,regularityRisk,profileRange,flatProfile,answeredCount,totalQuestions,skippedCount,answerRate,interruptions:interruptionCount,reasons};
+ return {score,level,elapsedSec,fastCount,slowCount,fastRatio,slowRatio,behaviorConcentration,situationConcentration,longestSameRun,regularityRisk,profileRange,flatProfile,answeredCount,totalQuestions,skippedCount,answerRate,interruptions:interruptionCount,reasons};
 }
 function formatDuration(sec){const m=Math.floor(sec/60),s=sec%60;return `${m}分${String(s).padStart(2,"0")}秒`}
 function roleSimilarity(displays,key){
@@ -2105,8 +2147,8 @@ function composeRoleReport(report,displays,role,p,s){
  };
 }
 function composeDeepAnalysis(report,displays,role,p,s,meta){
- const low=Object.entries(displays).sort((a,b)=>a[1]-b[1])[0][0],profile=roleReportProfiles[role.name]||roleReportProfiles["冷静观察家"],adaptation=summarizeAdaptation(report.adaptation||[]),decision=displays.P>=displays.A?`推进决断（${displays.P}）高于规范分析（${displays.A}），更可能先明确方向并在行动中校准。`:`规范分析（${displays.A}）高于推进决断（${displays.P}），更可能先核实依据、边界与风险再形成决定。`,communication=displays.E>=displays.R?`联结影响（${displays.E}）相对更突出，沟通时更可能主动表达、争取支持并扩大参与。`:`稳定支持（${displays.R}）相对更突出，沟通时更可能先倾听、维持合作并照顾持续节奏。`,execution=displays.P-displays.R>=10?`推进与稳定相差${displays.P-displays.R}分，短期推进动力较强；需核实能否持续跟进并控制团队负荷。`:displays.R-displays.P>=10?`稳定与推进相差${displays.R-displays.P}分，更重视连续性；需核实关键节点能否果断升级。`:`推进与稳定较为接近，可能同时关注进度与承载；需核实冲突时如何取舍。`,quality=displays.A>=65?`规范分析为${displays.A}，较重视事实、标准和复核；需观察能否按任务价值调整精度。`:`规范分析为${displays.A}，可能更愿意在信息不完整时先行动；需核实关键风险的检查机制。`,adaptationCopy=adaptation.total?`${adaptation.level}：6道变化情境使用${adaptation.range}类策略，较常选择${labels[adaptation.primary]}（${adaptation.primaryCount}/6）。这是策略范围线索，不是学习能力分数。`:`当前记录没有情境切换数据，不推断适应或学习能力。`;
- return [["决策方式",decision],["沟通与影响",communication],["执行节奏",execution],["质量与风险",quality],["情境切换",adaptationCopy],["团队贡献与补位",`${role.name}可能更常通过“${profile.theme}”创造价值；相对较低的${labels[low]}（${displays[low]}）应作为面试补位验证点，而不是弱点判定。`]];
+ const low=Object.entries(displays).sort((a,b)=>a[1]-b[1])[0][0],profile=roleReportProfiles[role.name]||roleReportProfiles["冷静观察家"],adaptation=summarizeAdaptation(report.adaptation||[]),decision=displays.P>=displays.A?`推进决断（${displays.P}）高于规范分析（${displays.A}），更可能先明确方向并在行动中校准。`:`规范分析（${displays.A}）高于推进决断（${displays.P}），更可能先核实依据、边界与风险再形成决定。`,communication=displays.E>=displays.R?`联结影响（${displays.E}）相对更突出，沟通时更可能主动表达、争取支持并扩大参与。`:`稳定支持（${displays.R}）相对更突出，沟通时更可能先倾听、维持合作并照顾持续节奏。`,execution=displays.P-displays.R>=10?`推进与稳定相差${displays.P-displays.R}分，短期推进动力较强；需核实能否持续跟进并控制团队负荷。`:displays.R-displays.P>=10?`稳定与推进相差${displays.R-displays.P}分，更重视连续性；需核实关键节点能否果断升级。`:`推进与稳定较为接近，可能同时关注进度与承载；需核实冲突时如何取舍。`,quality=displays.A>=65?`规范分析为${displays.A}，较重视事实、标准和复核；需观察能否按任务价值调整精度。`:`规范分析为${displays.A}，可能更愿意在信息不完整时先行动；需核实关键风险的检查机制。`,adaptationCopy=adaptation.total?`${adaptation.level}：6道变化情境使用${adaptation.range}类策略，较常选择${labels[adaptation.primary]}（${adaptation.primaryCount}/6）。这是策略范围线索，不是学习能力分数。`:`当前记录没有多线切换数据，不推断适应或学习能力。`;
+ return [["决策方式",decision],["沟通与影响",communication],["执行节奏",execution],["质量与风险",quality],["多线切换",adaptationCopy],["团队贡献与补位",`${role.name}可能更常通过“${profile.theme}”创造价值；相对较低的${labels[low]}（${displays[low]}）应作为面试补位验证点，而不是弱点判定。`]];
 }
 function updateReportNarrative(report,displays,role,p,s){
  const meta=applyProfileStability(displays,role,report.situations||{}),text=modeReportText[p],roleText=composeRoleReport(report,displays,role,p,s),situationEntries=Object.entries(report.situations||{P:0,E:0,R:0,A:0}).sort((a,b)=>b[1]-a[1]),situationTotal=situationEntries.reduce((sum,row)=>sum+Number(row[1]||0),0),first=situationEntries[0]||[p,0],second=situationEntries[1]||[s,0],consistent=first[0]===p,adaptation=summarizeAdaptation(report.adaptation||[]);
@@ -2116,7 +2158,7 @@ function updateReportNarrative(report,displays,role,p,s){
  document.getElementById("situationPrimaryTitle").textContent=`${labels[first[0]]} ${first[1]} / ${situationTotal||26}`;document.getElementById("situationPrimaryCopy").textContent=`具体工作情境中，候选人最常优先选择${labels[first[0]]}方式。`;
  document.getElementById("situationSecondaryTitle").textContent=`${labels[second[0]]} ${second[1]} / ${situationTotal||26}`;document.getElementById("situationSecondaryCopy").textContent=`第二常用的情境策略是${labels[second[0]]}。`;
  document.getElementById("consistencyTitle").textContent=consistent?"方向基本一致":"存在情境差异";document.getElementById("consistencyCopy").textContent=consistent?"行为题主倾向与情境首选方向相近，可继续验证例外情境。":"自我描述与情境首选不同，建议面试核实不同压力条件下的策略切换。";
- document.getElementById("adaptationRangeTitle").textContent=adaptation.level;document.getElementById("adaptationRangeCopy").textContent=adaptation.total?`6道变化情境中使用了${adaptation.range}类行动方式；这里只描述选择范围，不评价适应能力高低。`:"旧版报告未包含情境切换题，暂不输出该线索。";
+ document.getElementById("adaptationRangeTitle").textContent=adaptation.level;document.getElementById("adaptationRangeCopy").textContent=adaptation.total?`6道变化情境中使用了${adaptation.range}类行动方式；这里只描述选择范围，不评价适应能力高低。`:"旧版报告未包含多线切换题，暂不输出该线索。";
  document.getElementById("adaptationPrimaryTitle").textContent=adaptation.total?labels[adaptation.primary]:"暂无数据";document.getElementById("adaptationPrimaryCopy").textContent=adaptation.total?`变化情境中较常选择${labels[adaptation.primary]}（${adaptation.primaryCount}/6）；需结合真实经历验证。`:"该指标不参与核心类型和岗位结论。";
  const deepCards=composeDeepAnalysis(report,displays,role,p,s,meta);document.getElementById("deepPrimaryRole").textContent=`${meta.primaryRole.name} · ${meta.primaryRole.score}`;document.getElementById("deepPrimaryCopy").textContent=`四维连续分数最接近的角色，代码${meta.primaryRole.code}。`;document.getElementById("deepNeighborRole").textContent=`${meta.neighborRole.name} · ${meta.neighborRole.score}`;document.getElementById("deepNeighborCopy").textContent=`与主角色相差${meta.roleGap}分，${meta.roleGap<=3?"建议并列阅读":"作为邻近画像参考"}。`;document.getElementById("deepStabilityLevel").textContent=`${meta.stabilityLevel} · ${meta.stabilityScore}`;document.getElementById("deepStabilityCopy").textContent=meta.oneItemStable?"模拟单题最大幅度变化后，主角色仍保持不变。":"模拟单题最大幅度变化后，主角色排序可能变化。";document.getElementById("roleCandidateList").innerHTML=meta.rankedRoles.slice(0,3).map((item,i)=>`<div class="role-candidate"><b>${i+1}. ${item.name}</b><div class="role-candidate-track"><i style="width:${item.score}%"></i></div><strong>${item.score}</strong></div>`).join("");document.getElementById("deepAnalysisGrid").innerHTML=deepCards.map(row=>`<div class="deep-card"><b>${row[0]}</b><p>${row[1]}</p></div>`).join("");document.getElementById("oneItemSensitivityCopy").textContent=meta.oneItemStable?`每个维度由8道行为题构成，单题从最低改到最高，理论上可使对应维度变化12.5分。本次模拟该变化后主角色仍为“${meta.primaryRole.name}”，但仍应结合连续分数解读。`:`每个维度由8道行为题构成，单题从最低改到最高，理论上可使对应维度变化12.5分。本次敏感性检查出现${meta.sensitivityRoles.join("、")}等标签，说明候选人位于相邻画像区域；标签换位不等于人格改变。`;
  document.getElementById("roleContextCopy").textContent=`应聘岗位记录为“${report.candidateRole||"待确认岗位"}”。报告首页的“招聘提示”提供简短概括，本页保留完整的工作条件和环境建议，供HR与用人经理详细查看。`;
@@ -2370,7 +2412,7 @@ function composeFiveReport(report,displays){
   meta,
   strengths:[["暂不判断核心优势",`五项最高分与最低分只差${meta.range}分，暂时选不出明显的第一、第二项。`,"请通过面试和模拟工作任务观察真实表现。"],["可能会根据任务调整","五项分数接近，候选人可能会根据不同任务改变做法。","也可能是连续选择同一档造成的，需要先查看作答可信度。"],["具体情境中的选择",`情境题中较常选择${actionLabels[first[0]]}，可以围绕这种做法继续提问。`,"这部分只说明遇到具体问题时的选择。"]],
   risks:[["五项分数太接近","当前不应强行选出前两项，也不能据此判断是否适合岗位。"],["可能没有逐题区分","如果大量选择同一档，建议确认作答要求后重新测评。"]],
-  evidence:[["五项分数",`最高与最低相差${meta.range}分，暂时看不出明显主次。`,"询问候选人答题时是否认真区分每道题，并请他提供真实案例。","neutral","分数接近"],["项目启动",`情境题中较常选择${actionLabels[first[0]]}。`,"请讲一个真实项目，说明当时为什么这样做，结果怎样。","context","情境线索"],["压力变化","五项分数接近，暂时无法判断稳定的压力应对方式。","请讲一个受到批评或计划突然变化的真实案例。","neutral","暂不判断"],["协作取舍","暂时无法从五项顺序判断沟通和合作偏好。","请讲一个与同事意见不同时如何处理的案例。","neutral","暂不判断"]],
+  evidence:[["五项分数",`最高与最低相差${meta.range}分，暂时看不出明显主次。`,"询问候选人答题时是否认真区分每道题，并请他提供真实案例。","neutral","分数接近"],["版本启动",`情境题中较常选择${actionLabels[first[0]]}。`,"请讲一个真实项目，说明当时为什么这样做，结果怎样。","context","情境线索"],["压力变化","五项分数接近，暂时无法判断稳定的压力应对方式。","请讲一个受到批评或计划突然变化的真实案例。","neutral","暂不判断"],["协作取舍","暂时无法从五项顺序判断沟通和合作偏好。","请讲一个与同事意见不同时如何处理的案例。","neutral","暂不判断"]],
   requirements:[["用真实任务观察","通过结构化行为面试和模拟工作任务，观察计划、协作、抗压和学习表现。"],["可以重新测评","确认候选人理解作答要求后，在合适时间重新作答。"],["暂不固定分工","在获得更多真实证据前，不根据本次分数固定团队角色或管理方式。"],["继续追问情境题",`围绕${actionLabels[first[0]]}的选择，询问什么时候适用、什么时候会换一种做法。`]],
   management:[["目标","先使用岗位本身的交付标准，不根据本次接近分数预设管理方式；把结果、期限、质量底线和协作对象说清楚。"],["反馈","反馈时只谈具体行为和结果影响，暂不使用人格标签；观察候选人在不同任务中的稳定表现。"],["授权","采用小范围、短周期授权：先给一个清晰任务和检查点，再根据实际完成质量逐步扩大范围。"],["节奏","建议重新测评或积累更多真实工作样本后，再决定长期管理重点。"]],
   interviews:[["了解作答方式","本次五项分数非常接近。你在作答时是否经常选择同一档或中间档？哪些题最难选择？"],["比较不同任务","请分别讲一个需要严格计划和一个需要快速尝试的案例。你的做法有什么不同？"],["比较不同合作方式","请分别讲一个主动影响他人和一个耐心支持他人的案例。你为什么使用不同做法？"],["了解具体选择",`情境题中较常选择${actionLabels[first[0]]}。请讲一个没有使用这种做法、而换成另一种做法的案例。`]]
@@ -2445,7 +2487,7 @@ function buildInterviewFocus(meta){
 function buildWorkAdviceRows(meta){
  const overuse={G:"例行1—2次沟通中主动询问‘最近有没有为了维护关系而做出让步’，帮助其建立‘该不该妥协’的安全感",C:"明确最低可交付标准、截止点和抽查范围，避免所有任务都按最高标准反复检查",X:"把对外承诺同步写入负责人、时间和结果清单，避免表达积极但后续闭环不足",O:"为新方法设置预算、期限、验证指标和停止条件，避免频繁改变方向",S:"压力反馈尽量私下、具体并说明优先级，同时约定决策节点，避免担忧持续占用注意力"};
  const complement={G:"在需要处理分歧时，提供事实框架和明确底线，并安排能直接表达不同意见的搭档",C:"设置短周期节点、可见成果和同伴复核，帮助维持计划、跟进与收尾",X:"需要跨团队推动时，搭配沟通主动的成员；或提前明确沟通对象、期望结果和可协调资源",O:"在需要创新或处理陌生问题时，提供备选方案模板、小范围试点和复盘机制",S:"明确风险升级渠道、可求助对象和恢复安排，降低压力累积对判断的影响"};
- return [["团队层面","分工与协作边界清晰","在项目启动会或任务分配时，用书面形式明确个人责任、共同责任和分歧处理方式；帮助他人后，需同步确认责任边界，避免模糊不清"],["团队层面","压力与变化及时同步","优先级变化、负面反馈或风险升级需及时在团队同步，并明确‘可以找谁求助’以及‘什么情况下需要升级决策’"],["个人层面",`防止${labels[meta.p]}使用过度`,overuse[meta.p]],["个人层面",`为${labels[meta.low]}建立补位机制`,complement[meta.low]]];
+ return [["团队层面","分工与协作边界清晰","在版本启动会或任务分配时，用书面形式明确个人责任、共同责任和分歧处理方式；帮助他人后，需同步确认责任边界，避免模糊不清"],["团队层面","压力与变化及时同步","优先级变化、负面反馈或风险升级需及时在团队同步，并明确‘可以找谁求助’以及‘什么情况下需要升级决策’"],["个人层面",`防止${labels[meta.p]}使用过度`,overuse[meta.p]],["个人层面",`为${labels[meta.low]}建立补位机制`,complement[meta.low]]];
 }
 function buildManagementActionRows(){
  return [["目标设定","同时说清“合作目标”和“个人责任”","① 布置团队任务时，明确其个人承担的交付物和对他人的协作支持分别是什么；② 用书面形式记录分工边界，避免‘帮助他人’被模糊归责"],["反馈方式","用事实和可执行的下一步反馈，避免模糊否定或公开批评","① 用‘当时发生了XX，建议下一次改为XX’代替‘你做得不够好’；② 需要指出问题时，优先选择1—1私密沟通"],["授权边界","允许自主协调关系；涉及绩效、原则或资源边界时，要求同步决策","① 明确告知哪些事情可以自主决定，哪些事项需要先找谁确认；② 高风险决策前，要求其说明影响、已做处理和建议方案"],["压力管理","允许及时暴露风险和提出求助，同时要求同步影响和建议方案","① 在其汇报风险时，不仅问‘出了什么问题’，也要问‘你建议怎么处理’；② 帮助区分需要担心与不需要担心的事项"],["协作复盘","关键协作或分歧发生后，及时复盘确认责任和关系影响","① 分歧处理后的1周内安排简短复盘；② 识别让步是否合理，以及是否承担了过多不属于自己的工作"]];
@@ -2479,7 +2521,7 @@ function updateReportNarrative(report,displays){
  document.getElementById("consistencyAlignmentTitle").textContent=flat?"暂不形成一致性结论":consistencyMatch?`${labels[meta.p]}在两部分结果中相互印证`:consistencyPartial?`${labels[meta.s]}在具体情境中更常被调用`:"自我描述与情境选择呈现不同重点";document.getElementById("consistencyAlignmentCopy").textContent=flat?"五项分数接近，暂时不能选出稳定主项。建议用不同任务案例比较候选人的真实选择。":consistencyMatch?`五维最高项为${labels[meta.p]}（${displays[meta.p]}分），26道情境题中也有${first[1]}次首选${actionLabels[first[0]]}。两类题使用不同形式，却指向同一方向，因此一致性线索较强。`:`五维最高项为${labels[meta.p]}，情境题首选为${actionLabels[first[0]]}。这不代表矛盾，而是提示具体任务可能改变候选人的行为重点。`;
  document.getElementById("consistencyAdaptationTitle").textContent=adaptation.total?`${adaptation.range}种策略中最常用${actionLabels[adaptation.primary]}`:"缺少变化情境数据";document.getElementById("consistencyAdaptationCopy").textContent=adaptation.total?`6道变化情境中使用${adaptation.range}种处理方向，最常用方向出现${adaptation.primaryCount}次。说明候选人${adaptation.range>=4?"具有较宽的策略选择范围":"会在有限的几种策略之间调整"}，需要继续确认切换依据与实际效果。`:"当前记录无法判断候选人的策略切换范围。";
  document.getElementById("consistencyVerifyTitle").textContent=consistencyMatch?"核实一致性是否能稳定转化为工作结果":"重点解释两部分差异出现的条件";document.getElementById("consistencyVerifyCopy").textContent=consistencyMatch?`请候选人提供一个通常使用${labels[meta.p]}方式取得结果的案例，再提供一个没有沿用这一方式的反例。分别追问任务背景、本人判断、具体动作、调整原因和最终结果。`:`请比较候选人在${labels[meta.p]}要求较强和${actionLabels[first[0]]}要求较强的两类任务中的真实案例，了解对象、资源、时间压力和责任边界怎样影响其选择。`;
- document.getElementById("consistencyConclusionCopy").textContent=flat?`本次五项分数接近，暂不判断自我认知与情境选择是否一致。建议面试中比较不同任务下的真实做法，并追问何时会调整策略。`:`候选人的自我认知与情境选择${consistencyMatch?"基本一致":consistencyPartial?"部分一致":"呈现不同重点"}。建议在面试中重点追问情境切换的具体案例——什么情况下换了做法、为什么换、换了之后结果如何——以验证其策略调整的有效性。`;
+ document.getElementById("consistencyConclusionCopy").textContent=flat?`本次五项分数接近，暂不判断自我认知与情境选择是否一致。建议面试中比较不同任务下的真实做法，并追问何时会调整策略。`:`候选人的自我认知与情境选择${consistencyMatch?"基本一致":consistencyPartial?"部分一致":"呈现不同重点"}。建议在面试中重点追问多线切换的具体案例——什么情况下换了做法、为什么换、换了之后结果如何——以验证其策略调整的有效性。`;
  document.getElementById("deepPrimaryRole").textContent=flat?`最高与最低相差 · ${meta.range}分`:`${labels[meta.p]} · ${displays[meta.p]}`;document.getElementById("deepPrimaryCopy").textContent=flat?"五项分数太接近，暂时选不出明显主项。":top.strength;document.getElementById("deepNeighborRole").textContent=flat?"暂时看不出明显主次":`${labels[meta.s]} · ${displays[meta.s]}`;document.getElementById("deepNeighborCopy").textContent=flat?"先检查是否连续选择同一档，或是否过多选择中间档。":second.strength;document.getElementById("deepStabilityLevel").textContent=flat?"建议重新测评":`${labels[meta.low]} · ${displays[meta.low]}`;document.getElementById("deepStabilityCopy").textContent=flat?"请重新确认作答要求后完成测评，或在面试和模拟工作任务中多了解。":low.low;
  renderFacetAnalysis(report);document.getElementById("oneItemSensitivityCopy").textContent="本版本包含20个子维度，每个子维度由2道正反向题共同形成，子分数取两题平均值。相较单题测量可减少偶然波动，但仍应结合大五总分、作答可信度和真实案例阅读。";
  document.getElementById("roleContextCopy").textContent=`应聘岗位为“${report.candidateRole||"待确认岗位"}”。本页把团队层面与个人层面的建议合并展示，帮助主管直接了解应提供什么条件，以及具体如何落实。`;
@@ -2656,7 +2698,7 @@ async function initializeStandalone(){
  }
  if(location.protocol==="file:"){showSampleReport();if(mode==="hr"){const buttons=document.querySelectorAll(".tabs .tab");tab("hr",buttons[1])}}else showReportUnavailable()
 }
-function resetApp(){index=0;scores={C:0,X:0,G:0,S:0,O:0};counts={C:0,X:0,G:0,S:0,O:0};situations={S:0,X:0,O:0,G:0,C:0};livePoints={C:0,X:0,G:0,S:0,O:0};responseTimes=[];behaviorChoices=[];adaptationChoices=[];interruptionCount=0;startedAt=0;go("home")}
+function resetApp(){clearTimeout(advanceTimer);advanceTimer=0;index=0;scores={C:0,X:0,G:0,S:0,O:0};counts={C:0,X:0,G:0,S:0,O:0};situations={S:0,X:0,O:0,G:0,C:0};livePoints={C:0,X:0,G:0,S:0,O:0};responseTimes=[];behaviorChoices=[];adaptationChoices=[];responseHistory=[];interruptionCount=0;startedAt=0;go("home")}
 const pixelPet=document.getElementById("pixelPet"),pixelPetCharacter=document.getElementById("pixelPetCharacter"),pixelPetBubble=document.getElementById("pixelPetBubble"),pixelPetClose=document.getElementById("pixelPetClose"),pixelPetRestore=document.getElementById("pixelPetRestore");
 const pixelPetMessages={
  home:["准备好认识自己的职场风格了吗？","这里没有标准人格，只有更适合的工作方式。"],
