@@ -724,6 +724,16 @@
       pointer-events:none;
     }
     #home .hero>div{position:relative;z-index:1}
+    #home .hero-peek-panda{
+      position:absolute;
+      right:18px;
+      bottom:-13px;
+      z-index:3;
+      width:170px;
+      height:auto;
+      pointer-events:none;
+      filter:drop-shadow(0 9px 11px rgba(99,42,8,.18));
+    }
     #home .hero .eyebrow{
       display:inline-flex;
       align-items:center;
@@ -961,10 +971,53 @@
     body:has(#home.active) .pixel-pet-bubble,
     .standalone-candidate .pixel-pet-bubble,
     .candidate-result-view .pixel-pet-bubble{display:none}
+    .candidate-result-layout{
+      display:grid;
+      grid-template-columns:minmax(520px,1.08fr) minmax(390px,.92fr);
+      gap:28px;
+      align-items:stretch;
+    }
+    .standalone-candidate .candidate-poster-card,.candidate-result-view .candidate-poster-card{
+      width:100%;
+      min-height:700px;
+      margin:0;
+      padding:82px 42px 30px;
+      border:6px solid #efa328;
+      border-radius:44px 44px 34px 34px;
+      background:radial-gradient(circle at 18px 18px,rgba(255,255,255,.45) 0 3px,transparent 4px) 0 0/38px 38px,linear-gradient(155deg,#ffe39a 0%,#ffd06c 100%);
+      box-shadow:0 11px 0 #d86912,0 26px 52px rgba(112,46,6,.19);
+    }
+    .standalone-candidate .candidate-poster-card:before,.candidate-result-view .candidate-poster-card:before{
+      content:"";position:absolute;top:22px;left:50%;width:126px;height:32px;border-radius:0 0 22px 22px;
+      background:#9d4a16;box-shadow:inset 0 7px 9px rgba(59,21,2,.34),0 3px 0 rgba(255,255,255,.35);transform:translateX(-50%);
+    }
+    .candidate-card-label{position:relative;z-index:2;margin-bottom:16px;color:#a94a10;font-size:11px;font-weight:950;letter-spacing:.14em;text-align:center}
+    .standalone-candidate .candidate-poster-title,.candidate-result-view .candidate-poster-title{text-align:center}
+    .standalone-candidate .candidate-poster-title h2,.candidate-result-view .candidate-poster-title h2{
+      color:#a8460b;font-size:51px;font-weight:1000;letter-spacing:-.08em;white-space:nowrap;
+      -webkit-text-stroke:5px #ffecad;paint-order:stroke fill;text-shadow:0 4px 8px rgba(112,45,5,.06);
+    }
+    .standalone-candidate .candidate-archetype,.candidate-result-view .candidate-archetype{color:#b4490c;font-size:21px}
+    .standalone-candidate .candidate-mascot,.candidate-result-view .candidate-mascot{min-height:470px;margin-top:8px}
+    .standalone-candidate .candidate-mascot:before,.candidate-result-view .candidate-mascot:before{content:"";position:absolute;inset:7% 7% 5%;border-radius:48% 52% 47% 53%;background:rgba(255,248,211,.62)}
+    .standalone-candidate .candidate-mascot img,.candidate-result-view .candidate-mascot img{height:485px}
+    .candidate-card-serial{position:absolute;right:18px;bottom:16px;color:#9d4a16;font-size:11px;font-weight:900;letter-spacing:.1em;writing-mode:vertical-rl}
+    .candidate-result-details{width:100%;min-height:700px;margin:0;padding:24px;border:1px solid rgba(255,220,149,.7);border-radius:28px;background:rgba(255,253,241,.95);box-shadow:0 8px 0 rgba(119,45,7,.14),0 18px 38px rgba(99,36,3,.10);display:grid;grid-template-rows:minmax(0,1fr) auto auto;gap:18px}
+    .standalone-candidate .candidate-result-details .candidate-hashtags,.candidate-result-view .candidate-result-details .candidate-hashtags{margin-top:18px}
+    .standalone-candidate .candidate-result-details .candidate-poster-explainer,.candidate-result-view .candidate-result-details .candidate-poster-explainer{margin-top:16px}
+    .standalone-candidate .pixel-pet,.standalone-candidate .pixel-pet-restore,.candidate-result-view .pixel-pet,.candidate-result-view .pixel-pet-restore{display:none!important}
+    @media(max-width:900px){
+      .standalone-candidate #result,.candidate-result-view #result{width:min(100%,760px)}
+      .standalone-candidate .report-card,.candidate-result-view .report-card{max-width:760px}
+      .candidate-result-layout{grid-template-columns:1fr;gap:27px}
+      .standalone-candidate .candidate-poster-card,.candidate-result-view .candidate-poster-card{width:min(640px,100%);margin:0 auto}
+      .candidate-result-details{width:min(760px,100%);min-height:0;margin:0 auto;display:block}
+    }
     @media(max-width:800px){
       body:has(#home.active) .topbar{padding:0 4px}
       #home{padding:10px 0 34px}
       #home .hero{grid-template-columns:1fr;padding:30px 24px 28px;border-width:5px;border-radius:31px;box-shadow:0 8px 0 #d86912,0 19px 38px rgba(145,73,10,.16)}
+      #home .hero-peek-panda{right:12px;bottom:-10px;width:132px}
       #home h1{font-size:clamp(42px,11vw,58px)}
       #home .orbit{width:min(270px,84vw);margin:10px auto 0}
       #home .principles{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
@@ -979,6 +1032,7 @@
       body:has(#home.active) main{padding:12px 10px 34px}
       body:has(#intro.active) main{padding:12px 10px 34px}
       #home .hero{padding:24px 18px 25px;border-radius:27px}
+      #home .hero-peek-panda{right:5px;bottom:-7px;width:105px}
       #home .hero::before{width:230px;height:230px;right:-94px;top:-98px}
       #home .hero .eyebrow{font-size:10px}
       #home h1{margin:13px 0 18px;font-size:39px;line-height:1.05}
@@ -1008,11 +1062,15 @@
       .standalone-candidate main,.candidate-result-view main{padding:18px 10px 48px}
       .standalone-candidate .candidate-strip,.candidate-result-view .candidate-strip{gap:8px 14px;margin-bottom:12px;padding:11px 13px}
       .standalone-candidate .candidate-poster,.candidate-result-view .candidate-poster{padding:12px 0 0}
-      .standalone-candidate .candidate-poster-card,.candidate-result-view .candidate-poster-card{padding:22px 14px 20px;border-width:5px;border-radius:29px;box-shadow:0 8px 0 #d86912}
-      .standalone-candidate .candidate-poster-title h2,.candidate-result-view .candidate-poster-title h2{font-size:34px}
-      .standalone-candidate .candidate-archetype,.candidate-result-view .candidate-archetype{font-size:19px}
-      .standalone-candidate .candidate-mascot,.candidate-result-view .candidate-mascot{min-height:245px}
-      .standalone-candidate .candidate-mascot img,.candidate-result-view .candidate-mascot img{height:275px}
+      .standalone-candidate .candidate-poster-card,.candidate-result-view .candidate-poster-card{min-height:510px;padding:68px 16px 24px;border-width:5px;border-radius:31px 31px 25px 25px;box-shadow:0 8px 0 #d86912}
+      .standalone-candidate .candidate-poster-card:before,.candidate-result-view .candidate-poster-card:before{top:17px;width:100px;height:26px}
+      .candidate-card-label{margin-bottom:11px;font-size:9px}
+      .standalone-candidate .candidate-poster-title h2,.candidate-result-view .candidate-poster-title h2{font-size:37px;line-height:1.12;-webkit-text-stroke-width:3px}
+      .standalone-candidate .candidate-archetype,.candidate-result-view .candidate-archetype{margin-top:7px;font-size:17px}
+      .standalone-candidate .candidate-mascot,.candidate-result-view .candidate-mascot{min-height:330px;margin-top:0}
+      .standalone-candidate .candidate-mascot img,.candidate-result-view .candidate-mascot img{height:350px}
+      .candidate-card-serial{right:9px;bottom:12px;font-size:8px}
+      .standalone-candidate .candidate-result-details,.candidate-result-view .candidate-result-details{margin-top:20px;padding:16px 13px;border-radius:22px}
       .standalone-candidate .candidate-score-panel,.candidate-result-view .candidate-score-panel{padding:16px 13px;border-radius:19px}
       .standalone-candidate .candidate-poster .bars,.candidate-result-view .candidate-poster .bars{gap:13px}
       .standalone-candidate .candidate-hashtags,.candidate-result-view .candidate-hashtags{margin-top:17px}
@@ -1201,6 +1259,7 @@
           </div>
         </div>
         <div class="orbit"><div class="orbit-core"><div><span>BIG5</span>没有最好<br>只有更适合</div></div></div>
+        <img class="hero-peek-panda" src="assets/hero-peek-panda.png" alt="" aria-hidden="true">
       </div>
       <div class="principles">
         <div class="principle"><div>≈</div><b>神经质</b><small>焦虑、愤怒、抑郁、自我意识、冲动性、脆弱性</small></div>
@@ -1285,14 +1344,18 @@
         <div id="candidate" class="tab-panel active">
           <section class="candidate-poster" aria-labelledby="roleName">
             <div class="candidate-poster-kicker">你的职场大五人格是…</div>
-            <div class="candidate-poster-card">
-              <div class="candidate-poster-title"><h2 id="roleName">大五人格五维结果</h2><div class="candidate-archetype" id="candidateArchetype">职场行为画像</div></div>
-              <div class="candidate-poster-main">
-                <div class="candidate-mascot"><img id="candidateMascotImage" src="assets/wbs-orange-panda.png" alt="职场人格组合熊猫形象"></div>
-                <div class="candidate-score-panel"><div class="candidate-score-label"><span>五项倾向</span><span>得分 / 100</span></div><div class="bars" id="bars"></div></div>
+            <div class="candidate-result-layout">
+              <div class="candidate-poster-card">
+                <div class="candidate-card-label">BIG5 · PERSONALITY CARD</div>
+                <div class="candidate-poster-title"><h2 id="roleName">大五人格五维结果</h2><div class="candidate-archetype" id="candidateArchetype">职场行为画像</div></div>
+                <div class="candidate-mascot"><img id="candidateMascotImage" src="assets/balanced-panda.png" alt="职场人格组合熊猫形象"></div>
+                <div class="candidate-card-serial" aria-hidden="true">BIG5 · PERSONA</div>
               </div>
-              <div class="candidate-hashtags"><span id="candidateTagPrimary">#主要倾向待生成</span><span id="candidateTagSecondary">#辅助倾向待生成</span></div>
-              <p class="candidate-poster-explainer" id="roleLine">五项分数表示倾向强弱；DISC仅作为基于子维度的辅助映射。</p>
+              <div class="candidate-result-details">
+                <div class="candidate-score-panel"><div class="candidate-score-label"><span>五项倾向</span><span>得分 / 100</span></div><div class="bars" id="bars"></div></div>
+                <div class="candidate-hashtags"><span id="candidateTagPrimary">#主要倾向待生成</span><span id="candidateTagSecondary">#辅助倾向待生成</span></div>
+                <p class="candidate-poster-explainer" id="roleLine">五项分数表示倾向强弱；DISC仅作为基于子维度的辅助映射。</p>
+              </div>
             </div>
           </section>
           <div class="stability-note" id="candidateStabilityNote">五维分数表示你对自己的描述程度，不是能力等级，也不是固定人格。</div>
@@ -1572,27 +1635,27 @@ const scenarioOpenOptions={
  "新加入项目组的成员在版本启动会上明显沉默，但任务需要尽快进入制作。":["换一种轻量互动方式，让他先通过便签或示例表达想法。","你选择用新的互动形式帮助成员参与。"],
  "负责人只提出“提升新版本体验”，但希望两周内看到可玩的阶段成果。":["把目标改写成几种可能的成果形态，用样例请上级快速选择。","你选择用多种成果设想澄清模糊目标。"],
  "团队对一个新玩法原型的价值缺乏兴趣。":["做一个简短原型或新场景演示，让大家直观看到项目可能性。","你选择用新场景和原型激发理解。"],
- "策划与美术因版本资源排期发生争执，评审会开始偏离主题。":["跳出现有分配方式，提出资源互换或分阶段共享的新方案。","你选择探索不同于原有分配方式的方案。"],
+ "两个团队因版本资源排期发生争执，评审会开始偏离主题。":["跳出现有分配方式，提出资源互换或分阶段共享的新方案。","你选择探索不同于原有分配方式的方案。"],
  "一名能力很强的核心成员在玩法评审中经常打断别人。":["试用限时发言、书面补充等新的会议互动方式。","你选择通过新的互动机制改善会议。"],
  "你提出的玩法方案被主策或技术负责人在评审会上公开质疑。":["把质疑转成新的假设，现场构想几个替代版本。","你选择从质疑中发展新的方案可能。"],
  "一位成员连续两次没有按约定提交版本素材或功能。":["重新设计交付方式，尝试更短周期或不同协作工具。","你选择尝试新的交付路径。"],
  "距离版本上线只剩一天，测试发现一个影响有限但真实存在的问题。":["构想灰度发布、功能隔离等不完全延期的替代方案。","你选择探索兼顾上线与风险的新路径。"],
- "渠道或发行方临时提出超出当前版本范围的新要求。":["寻找能满足核心诉求的新组合方案，而不是沿用原需求做法。","你选择重新组合方案以回应新诉求。"],
+ "合作方在项目推进中临时增加了超出原定范围的新要求。":["寻找能满足核心诉求的新组合方案，而不是沿用原需求做法。","你选择重新组合方案以回应新诉求。"],
  "项目组已连续高强度冲刺两周，但关键版本节点仍不能推迟。":["试用自动化、结对或新的工作方法，寻找不同的减负路径。","你选择用新方法改善高压下的工作方式。"],
  "你发现自己对玩家需求或功能风险的判断可能错了。":["重新检查原有假设，并主动引入不同视角寻找新解释。","你选择开放地重构原有判断。"],
  "版本按期上线，但策划、美术和程序之间出现多次返工。":["寻找现有流程之外的做法，重新设计容易返工的环节。","你选择从新角度重新设计工作流程。"],
- "试行的新版本协作流程效果一般，团队意见分散。":["拆开流程中的有效部分，组合出两三个新版本再比较。","你选择重组已有经验并探索新版本。"],
+ "试行的新流程效果一般，团队成员意见很不一致。":["拆开流程中的有效部分，组合出两三个新版本再比较。","你选择重组已有经验并探索新版本。"],
  "一位表现稳定的成员最近在版本内容中频繁出错。":["从工具、任务变化或工作方式等新角度提出几种原因假设。","你选择从多个新视角理解异常变化。"],
  "管理层希望把一个项目组的成功研发经验快速复制到其他游戏项目。":["提炼核心原理，让不同团队设计适合自身的新版本。","你选择保留原理并鼓励情境化创新。"],
  "发行计划突然要求版本提前一周上线，但内容范围没有减少。":["探索不同于原计划的交付形态，例如可体验版本或模块化交付。","你选择重新设想成果的交付形态。"],
- "玩家社区或发行团队对已上线内容表示不满，但反馈非常笼统。":["请玩家代表或发行方用示例、草图或理想场景表达期待，打开新的理解角度。","你选择用多样表达方式发现真实期待。"],
- "你同时负责版本功能、线上活动和紧急问题修复，现有资源只能确保两项按期完成。":["寻找任务合并、成果复用或替代路径，重新设计三项工作的关系。","你选择通过重组任务寻找新的资源空间。"],
+ "外部合作方对已交付的成果表示不满，但反馈非常笼统。":["请玩家代表或发行方用示例、草图或理想场景表达期待，打开新的理解角度。","你选择用多样表达方式发现真实期待。"],
+ "你同时负责三项重要任务，现有资源只能确保其中两项按期完成.":["寻找任务合并、成果复用或替代路径，重新设计三项工作的关系。","你选择通过重组任务寻找新的资源空间。"],
  "一名关键程序、美术或策划成员提出转组，短期内很难找到替代者。":["设计新的角色组合和知识共享方式，降低对单一岗位的依赖。","你选择重新构想角色与知识的配置方式。"],
- "你正在进行需要安静分析的玩家数据复盘，临时又被安排支持当天的版本评审汇报。":["把分析中的关键洞见转化为新的汇报结构，让两项任务相互支持。","你选择创造两项任务之间的新连接。"],
+ "你正在处理一项需要深度分析的任务，临时又被安排支持当天的团队汇报。":["把分析中的关键洞见转化为新的汇报结构，让两项任务相互支持。","你选择创造两项任务之间的新连接。"],
  "项目原本追求快速上线，但临时审核要求把合规与内容安全改为第一优先级。":["从合规限制出发重新设计方案，寻找新的产品或流程可能。","你选择把新限制转化为重新设计的起点。"],
  "你加入一个由策划、美术、程序和运营组成的临时项目组，成员沟通风格差异很大。":["试用可视化、书面和口头相结合的多种沟通方式。","你选择探索适配不同风格的表达形式。"],
  "项目负责人突然请假，你需要临时代管版本组一周，之后再回到原岗位。":["把这一周作为小型试验，尝试一种新的协调机制并记录效果。","你选择在临时角色中试验新的协作方法。"],
- "玩家数据支持一个新玩法方向，但一线策划、程序或运营同事普遍认为实际落地困难。":["把数据与一线经验组合成几个新假设，再设计对应验证方式。","你选择整合不同证据形成新的验证假设。"],
+ "你根据分析结果提出了一个新方向，但执行团队普遍认为实际落地困难。":["把数据与一线经验组合成几个新假设，再设计对应验证方式。","你选择整合不同证据形成新的验证假设。"],
  "同一天里，玩家反馈、团队协作问题和版本质量风险都需要你处理。":["尝试新的任务视图或批处理方式，重新组织三类工作的切换路径。","你选择用新的组织方式降低多任务切换损耗。"]
 };
 const s=(chapter,scene,q,opts,adaptation=false)=>{
@@ -1737,27 +1800,27 @@ const questionBank=[
  s("版本启动","新加入项目组的成员在版本启动会上明显沉默，但任务需要尽快进入制作。","你更可能怎样处理？",[["A","邀请他单独交流，了解他能贡献什么","E","你选择先建立连接。"],["B","先给他一项边界清楚的小任务，逐步进入节奏","R","你选择提供稳定的进入方式。"],["C","说明目标和时间，直接确认他的责任范围","P","你选择快速明确行动。"],["D","补充工作文档和标准，降低理解偏差","A","你选择先完善信息。"]]),
  s("版本启动","负责人只提出“提升新版本体验”，但希望两周内看到可玩的阶段成果。","你的第一步是？",[["A","提出一个可验证的阶段目标并马上启动","P","你选择用行动澄清方向。"],["B","找关键相关方对齐他们真正期待的结果","E","你选择通过沟通校准目标。"],["C","把已有信息整理成假设、约束和待确认项","A","你选择结构化不确定性。"],["D","先保持现有节奏，等待目标进一步明确","R","你选择减少贸然变化。"]]),
  s("版本启动","团队对一个新玩法原型的价值缺乏兴趣。","你会优先？",[["A","用具体收益和故事说明为什么值得投入","E","你选择激发认同。"],["B","明确必须完成的最低交付和截止时间","P","你选择先形成行动约束。"],["C","了解成员担忧，调整工作节奏与支持方式","R","你选择先处理真实顾虑。"],["D","补充数据和依据，验证项目价值是否成立","A","你选择先核验价值。"]]),
- s("协作冲突","策划与美术因版本资源排期发生争执，评审会开始偏离主题。","你更可能？",[["A","暂停争论，明确本次必须作出的决定","P","你选择收敛讨论。"],["B","重新梳理事实、约束和可选方案","A","你选择回到判断依据。"],["C","让双方各自说明最担心的损失","R","你选择先降低防御。"],["D","寻找双方都认可的人协助推动共识","E","你选择借助影响网络。"]]),
+ s("协作冲突","两个团队因版本资源排期发生争执，评审会开始偏离主题。","你更可能？",[["A","暂停争论，明确本次必须作出的决定","P","你选择收敛讨论。"],["B","重新梳理事实、约束和可选方案","A","你选择回到判断依据。"],["C","让双方各自说明最担心的损失","R","你选择先降低防御。"],["D","寻找双方都认可的人协助推动共识","E","你选择借助影响网络。"]]),
  s("协作冲突","一名能力很强的核心成员在玩法评审中经常打断别人。","你会怎么做？",[["A","私下直接说明行为影响并约定改变方式","P","你选择明确反馈和要求。"],["B","引导他看到其他成员的贡献并争取配合","E","你选择通过认同促成改变。"],["C","在会议中建立轮流表达规则，保护参与感","R","你选择维护协作安全。"],["D","记录具体发生次数和后果，再进行反馈","A","你选择以事实支持反馈。"]]),
  s("协作冲突","你提出的玩法方案被主策或技术负责人在评审会上公开质疑。","你会先？",[["A","请对方指出最关键的反对依据","A","你选择先检查判断。"],["B","继续说明方案价值，争取其他人的支持","E","你选择扩大影响。"],["C","承认分歧并邀请对方共同修改方案","R","你选择维护合作。"],["D","把争议转为几个可当场决定的问题","P","你选择推动收敛。"]]),
  s("协作冲突","一位成员连续两次没有按约定提交版本素材或功能。","你倾向？",[["A","明确指出偏差、影响和新的交付要求","P","你选择直接推动纠偏。"],["B","了解阻碍并协调可用资源","R","你选择先提供支持。"],["C","核对任务定义、记录和依赖是否清楚","A","你选择检查系统原因。"],["D","请团队中的关键伙伴一起帮助他恢复节奏","E","你选择动员关系资源。"]]),
  s("版本冲刺","距离版本上线只剩一天，测试发现一个影响有限但真实存在的问题。","你会优先？",[["A","评估影响范围和可逆性，再决定是否上线","A","你选择基于风险判断。"],["B","明确负责人和最晚修复节点，推动立即处理","P","你选择先控制行动。"],["C","同步相关人员，确保大家理解影响与选择","E","你选择保持信息透明。"],["D","关注团队负荷，设计不会引发连续加班的方案","R","你选择兼顾可持续性。"]]),
- s("版本冲刺","渠道或发行方临时提出超出当前版本范围的新要求。","你更可能？",[["A","说明对版本范围和排期的影响，并给出取舍方案，请发行方确认优先级","P","你选择建立边界并推动决定。"],["B","先理解发行方真正想解决的市场或玩家问题","E","你选择通过交流寻找空间。"],["C","与团队确认承受能力，再商量可行节奏","R","你选择保护稳定交付。"],["D","核对版本目标、合作约定、范围和变更成本","A","你选择依据标准判断。"]]),
+ s("版本冲刺","合作方在项目推进中临时增加了超出原定范围的新要求。","你更可能？",[["A","说明对版本范围和排期的影响，并给出取舍方案，请发行方确认优先级","P","你选择建立边界并推动决定。"],["B","先理解发行方真正想解决的市场或玩家问题","E","你选择通过交流寻找空间。"],["C","与团队确认承受能力，再商量可行节奏","R","你选择保护稳定交付。"],["D","核对版本目标、合作约定、范围和变更成本","A","你选择依据标准判断。"]]),
  s("版本冲刺","项目组已连续高强度冲刺两周，但关键版本节点仍不能推迟。","你会？",[["A","砍掉低价值任务，重新集中资源确保节点","P","你选择重新聚焦结果。"],["B","向上争取资源，并让团队知道努力被看见","E","你选择动员支持。"],["C","调整轮班和休息，避免关键成员持续透支","R","你选择维护长期稳定。"],["D","分析工作量和瓶颈，找到最有效的减负点","A","你选择用分析改善负荷。"]]),
  s("版本冲刺","你发现自己对玩家需求或功能风险的判断可能错了。","你会首先？",[["A","快速承认并发布新的行动方向","P","你选择尽快纠偏。"],["B","找受影响的人沟通，解释变化原因","E","你选择维护理解与信任。"],["C","给团队时间消化变化，并提供过渡支持","R","你选择降低变化冲击。"],["D","复查证据，确认错误范围和根因","A","你选择先确定问题边界。"]]),
  s("版本复盘","版本按期上线，但策划、美术和程序之间出现多次返工。","你会先复盘什么？",[["A","哪些节点缺少明确责任和决定","P","你选择检查推进机制。"],["B","哪些沟通没有让关键人员真正理解","E","你选择检查影响过程。"],["C","哪些变化打乱了团队稳定节奏","R","你选择检查协作负荷。"],["D","哪些标准、信息或检查环节缺失","A","你选择检查质量机制。"]]),
- s("版本复盘","试行的新版本协作流程效果一般，团队意见分散。","你会？",[["A","设定继续或停止的判断标准，再试一个周期","A","你选择用标准支持试验。"],["B","选定一个方向，缩小范围继续推进","P","你选择保持行动。"],["C","邀请使用者分享体验，寻找愿意支持的改法","E","你选择汇集使用者影响。"],["D","先保留旧流程，让团队逐步适应变化","R","你选择控制变化速度。"]]),
+ s("版本复盘","试行的新流程效果一般，团队成员意见很不一致。","你会？",[["A","设定继续或停止的判断标准，再试一个周期","A","你选择用标准支持试验。"],["B","选定一个方向，缩小范围继续推进","P","你选择保持行动。"],["C","邀请使用者分享体验，寻找愿意支持的改法","E","你选择汇集使用者影响。"],["D","先保留旧流程，让团队逐步适应变化","R","你选择控制变化速度。"]]),
  s("版本复盘","一位表现稳定的成员最近在版本内容中频繁出错。","你会先？",[["A","私下了解他的状态和遇到的困难","R","你选择先理解变化原因。"],["B","核对错误类型、频率和发生环节","A","你选择先定位事实。"],["C","明确近期必须恢复的结果标准","P","你选择先稳定交付要求。"],["D","帮助他连接可以提供支持的同事","E","你选择调动协作资源。"]]),
  s("版本复盘","管理层希望把一个项目组的成功研发经验快速复制到其他游戏项目。","你倾向？",[["A","形成简洁方案并选一个团队立即试点","P","你选择快速复制验证。"],["B","邀请原团队分享故事和经验，增强接受度","E","你选择通过示范影响。"],["C","给新团队适应空间，保留其原有有效做法","R","你选择尊重本地节奏。"],["D","提炼适用条件、关键步骤和风险边界","A","你选择先明确复制条件。"]]),
  s("玩家与发行","发行计划突然要求版本提前一周上线，但内容范围没有减少。","你会先做什么？",[["A","提出必须删减的版本内容和新的决定时限","P","你选择推动发行方作出取舍。"],["B","与发行团队确认提前上线背后的市场节点或玩家需求","E","你选择先理解并影响需求。"],["C","评估团队承受力，设计分阶段交付方式","R","你选择兼顾承诺与稳定。"],["D","重新计算工期、依赖和质量风险","A","你选择先建立可靠判断。"]]),
- s("玩家与发行","玩家社区或发行团队对已上线内容表示不满，但反馈非常笼统。","你更可能？",[["A","请对方指出最重要的三个玩家体验差距","P","你选择快速聚焦问题。"],["B","整理玩家反馈并与发行团队沟通，让对方完整描述期待和实际体验","E","你选择通过对话澄清体验。"],["C","先接住情绪并确认双方仍会共同解决问题","R","你选择维护合作安全。"],["D","对照版本目标、需求文档和验收记录定位差异","A","你选择回到事实与标准。"]]),
- s("版本资源","你同时负责版本功能、线上活动和紧急问题修复，现有资源只能确保两项按期完成。","你会如何开始？",[["A","按业务影响排序，并立即暂停最低优先级任务","P","你选择迅速完成资源取舍。"],["B","与关键相关方沟通，争取资源或调整承诺","E","你选择通过影响扩大空间。"],["C","与团队讨论可持续节奏，避免多人同时透支","R","你选择保护长期执行力。"],["D","比较收益、风险、依赖和延误成本","A","你选择建立可解释的排序依据。"]]),
+ s("玩家与发行","外部合作方对已交付的成果表示不满，但反馈非常笼统。","你更可能？",[["A","请对方指出最重要的三个玩家体验差距","P","你选择快速聚焦问题。"],["B","整理玩家反馈并与发行团队沟通，让对方完整描述期待和实际体验","E","你选择通过对话澄清体验。"],["C","先接住情绪并确认双方仍会共同解决问题","R","你选择维护合作安全。"],["D","对照版本目标、需求文档和验收记录定位差异","A","你选择回到事实与标准。"]]),
+ s("版本资源","你同时负责三项重要任务，现有资源只能确保其中两项按期完成.","你会如何开始？",[["A","按业务影响排序，并立即暂停最低优先级任务","P","你选择迅速完成资源取舍。"],["B","与关键相关方沟通，争取资源或调整承诺","E","你选择通过影响扩大空间。"],["C","与团队讨论可持续节奏，避免多人同时透支","R","你选择保护长期执行力。"],["D","比较收益、风险、依赖和延误成本","A","你选择建立可解释的排序依据。"]]),
  s("版本资源","一名关键程序、美术或策划成员提出转组，短期内很难找到替代者。","你会优先？",[["A","确定知识交接、替代责任人和时间表","P","你选择先控制交付风险。"],["B","了解转岗动机，并沟通可能的保留方案","E","你选择通过交流寻找转机。"],["C","关注本人和团队感受，安排平稳过渡","R","你选择维护关系与稳定。"],["D","梳理关键知识、权限和单点依赖","A","你选择先识别系统风险。"]]),
- s("多线切换","你正在进行需要安静分析的玩家数据复盘，临时又被安排支持当天的版本评审汇报。","你会先怎样切换？",[["A","确认新的首要结果和截止点，立即重排任务顺序","P","你选择先重新建立行动优先级。"],["B","先与汇报人沟通受众和期待，快速进入对方语境","E","你选择通过交流完成角色切换。"],["C","安排好原任务的暂停点和恢复时间，减少来回切换损耗","R","你选择保持工作连续性。"],["D","列出两项任务的关键要求和不可遗漏信息，再开始切换","A","你选择用结构降低切换风险。"]],true),
+ s("多线切换","你正在处理一项需要深度分析的任务，临时又被安排支持当天的团队汇报。","你会先怎样切换？",[["A","确认新的首要结果和截止点，立即重排任务顺序","P","你选择先重新建立行动优先级。"],["B","先与汇报人沟通受众和期待，快速进入对方语境","E","你选择通过交流完成角色切换。"],["C","安排好原任务的暂停点和恢复时间，减少来回切换损耗","R","你选择保持工作连续性。"],["D","列出两项任务的关键要求和不可遗漏信息，再开始切换","A","你选择用结构降低切换风险。"]],true),
  s("多线切换","项目原本追求快速上线，但临时审核要求把合规与内容安全改为第一优先级。","你的第一反应是？",[["A","重新确认必须暂停、继续和重新负责的工作","P","你选择快速重设行动边界。"],["B","向相关人员解释变化原因并确认新的共同理解","E","你选择先建立变化共识。"],["C","设计过渡节奏，避免团队在一天内反复推翻全部工作","R","你选择降低变化冲击。"],["D","识别新增合规标准、证据缺口和高风险环节","A","你选择先重建判断依据。"]],true),
  s("多线切换","你加入一个由策划、美术、程序和运营组成的临时项目组，成员沟通风格差异很大。","你更可能先做什么？",[["A","明确会议必须形成的决定和争议升级方式","P","你选择先建立决策抓手。"],["B","分别了解成员习惯，并调整自己与不同对象的表达方式","E","你选择主动适配沟通对象。"],["C","先观察一轮互动，营造让不同成员都能发言的节奏","R","你选择建立安全稳定的合作氛围。"],["D","把会议规则、责任边界和记录方式写清楚","A","你选择用规则减少风格误解。"]],true),
  s("多线切换","项目负责人突然请假，你需要临时代管版本组一周，之后再回到原岗位。","你会优先处理？",[["A","确认自己能决定什么，并接住最紧急的结果责任","P","你选择先承担临时决策责任。"],["B","建立信息联络表，让关键人员知道该找谁沟通","E","你选择先打通协作网络。"],["C","尽量保持原有节奏，给团队提供可预期的支持","R","你选择维持工作连续性。"],["D","梳理权限、未决事项和容易被遗漏的风险","A","你选择先建立清晰的接管清单。"]],true),
- s("多线切换","玩家数据支持一个新玩法方向，但一线策划、程序或运营同事普遍认为实际落地困难。","你会先？",[["A","设计一个范围可控的小试点，用结果决定是否继续","P","你选择用行动验证争议。"],["B","邀请策划、程序和运营说明落地阻力，并共同调整玩法方案和实施路径","E","你选择通过参与扩大可接受度。"],["C","保留现有做法作为缓冲，让改变分阶段发生","R","你选择控制变化速度。"],["D","复查样本、假设和数据口径，确认结论是否遗漏现场条件","A","你选择先检查证据边界。"]],true),
+ s("多线切换","你根据分析结果提出了一个新方向，但执行团队普遍认为实际落地困难。","你会先？",[["A","设计一个范围可控的小试点，用结果决定是否继续","P","你选择用行动验证争议。"],["B","邀请策划、程序和运营说明落地阻力，并共同调整玩法方案和实施路径","E","你选择通过参与扩大可接受度。"],["C","保留现有做法作为缓冲，让改变分阶段发生","R","你选择控制变化速度。"],["D","复查样本、假设和数据口径，确认结论是否遗漏现场条件","A","你选择先检查证据边界。"]],true),
  s("多线切换","同一天里，玩家反馈、团队协作问题和版本质量风险都需要你处理。","你会怎样安排？",[["A","确定唯一首要事项并设定各任务的明确处理时段","P","你选择用优先级控制切换。"],["B","先同步相关人员的期待，争取时间和资源空间","E","你选择通过沟通协调多方需求。"],["C","为突发事项保留缓冲，避免所有人同时进入紧急状态","R","你选择维持可持续节奏。"],["D","按影响、时限、可逆性和风险建立排序标准","A","你选择用一致标准支持取舍。"]],true)
 ];
 const behaviorBank=questionBank.slice(0,40),scenarioBank=questionBank.slice(40);
@@ -1945,7 +2008,7 @@ function missionForDay(day){
 function shuffledOptions(options){const copy=[...options];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]]}return copy}
 function render(){
  const x=questions[index],day=dayForQuestion(index),mission=missionForDay(day);
- document.getElementById("chapter").textContent=`入职第${day}天 · ${x.chapter}`;document.getElementById("counter").textContent=`${index+1} / ${questions.length}`;
+ document.getElementById("chapter").textContent=`入职第${day}天`;document.getElementById("counter").textContent=`${index+1} / ${questions.length}`;
  document.getElementById("dayNumber").textContent=String(day).padStart(2,"0");document.getElementById("missionTitle").textContent=mission[0];document.getElementById("missionCopy").textContent=mission[1];
  document.getElementById("progressBar").style.width=`${index/questions.length*100}%`;document.getElementById("qType").textContent=x.opts?"关键情境选择":"当日行动记录";
  const previousButton=document.getElementById("previousQuestion");previousButton.hidden=index===0;previousButton.disabled=index===0;
@@ -2317,7 +2380,7 @@ const candidatePersonaVisuals={
  "C-O":{title:"方法优化者",trait:"守规则，但也愿意尝试新方法。",outfit:"白衬衫、浅蓝开衫、工牌",props:"齿轮、灯泡、流程图、测试清单",keywords:["创新秩序","优化方法"],image:"assets/pandas/panda-c-o.png",ready:true},
  "C-A":{title:"温暖担当者",trait:"有责任心，也重视团队氛围和他人感受。",outfit:"浅橙衬衫、深蓝马甲、胸牌",props:"文件夹、爱心、握手、协作板",keywords:["靠谱协作","温暖责任"],image:"assets/pandas/panda-c-a.png",ready:true}
 };
-const balancedPersonaVisual={title:"均衡观察者",trait:"本次五项分数较为接近，暂时看不出明显主次，建议结合真实任务继续观察。",outfit:"橙色职场制服",props:"工作记录板",keywords:["五项倾向较均衡","结合真实任务观察"],image:"assets/wbs-orange-panda.png",ready:true};
+const balancedPersonaVisual={title:"均衡观察者",trait:"本次五项分数较为接近，暂时看不出明显主次，建议结合真实任务继续观察。",outfit:"橙白工作夹克",props:"工作记录板",keywords:["五项倾向较均衡","结合真实任务观察"],image:"assets/balanced-panda.png",ready:true};
 function updateCandidatePoster(meta){
  const visual=meta.flat?balancedPersonaVisual:(candidatePersonaVisuals[meta.code]||balancedPersonaVisual),archetype=document.getElementById("candidateArchetype"),primary=document.getElementById("candidateTagPrimary"),secondary=document.getElementById("candidateTagSecondary"),mascot=document.getElementById("candidateMascotImage"),roleLine=document.getElementById("roleLine"),fallback=balancedPersonaVisual.image;
  if(!archetype||!primary||!secondary)return;
